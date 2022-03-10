@@ -1,33 +1,58 @@
-const express = require("express")
-const app = express()
-// const mongoose = require("mongoose")
-// const userModel = require("./models/users")
-// const cors = require("cors")
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const userModel = require("./models/Users");
+const cors = require("cors");
+const bcrypt = require('bcrypt');
 
 //console.log(process.env);
 
-// app.use(express.json());
-// app.use(cors());
+app.use(express.json());
+app.use(cors());
 
-// mongoose.connect("mongodb+srv://admin:admin@cluster0.lqrvk.mongodb.net/testDB?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin:admin@cluster0.lqrvk.mongodb.net/newtest?retryWrites=true&w=majority");
 
-// app.get("/getUsers", (req, res) => {
-//     userModel.find({}, (err, result) =>{
-//         if (err) {
-//             res.json(err);
-//         } else {
-//             res.json(result);
-//         }
-//     });
-// });
+ app.get("/getUsers", (req, res) => {
+    userModel.find({}, (err, result) =>{
+         if (err) {
+            res.json(err);
+         } else {
+            res.json(result);
+         }
+     });
+ });
 
-// app.post("/createUser", async (req, res) => {
-//     const user = req.body;
-//     const newUser = new userModel(user);
-//     await newUser.save();
+ //skapar en användare med hashad lösenord
+ app.post("/createUser", async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const user = { name: req.body.name, password: hashedPassword, 
+                       email: req.body.email, admin: req.body.admin,
+                       analysis: req.body.analysis};
+        const newUser = new userModel(user);
+        await newUser.save();
+        res.json(user);
+    } catch {
+        res.status(500).send();
+    } 
+ });
 
-//     res.json(user);
-// });
+ //inloggning kollar om namn och lösenord stämmer TODO
+//  app.post('/users/login', async (req, res) => {
+//     const userL = userModel.find(user => user.name == req.body.name)
+//     if (userL == null) {
+//       return res.status(400).send('Cannot find user')
+//     }
+//     try {
+//       if(await bcrypt.compare(req.body.password, userL.password)) {
+//         res.send('Success')
+//       } else {
+//         res.send('Not Allowed');
+//       }
+//     } catch {
+//       res.status(500).send();
+//     }
+//   });
 
 app.listen(3001, () => {
     console.log("server is running on PORT 3001");

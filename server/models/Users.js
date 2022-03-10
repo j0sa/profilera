@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
       },
       analysis: {
         analysisId: {
-            type: Int16Array,
+            type: Number,
             required: true,
           },
           date: {
@@ -38,19 +38,19 @@ const UserSchema = new mongoose.Schema({
             required: false,
           },
           status: {
-            type: Int16Array,
+            type: Number,
             required: false,
           },
       },
 });
 
-UserSchema.pre('save', async function (next) {
-    try {
-        console.log("Running before saving...")
-    } catch (error) {
-        next(error)
-    }
-})
+// UserSchema.pre('save', async function (next) {
+//     try {
+//         console.log("Running before saving...")
+//     } catch (error) {
+//         next(error)
+//     }
+// })
 
 const User = mongoose.model("users", UserSchema);
 module.exports = User;
