@@ -6,9 +6,9 @@ In the project directory, you can run:
 
 ### `npm install`
 Installs the required dependencies.
-#### `npm run istall:client`
+#### `npm run install:client`
 Installs the required dependencies for the client.
-#### `npm run istall:backend`
+#### `npm run install:backend`
 Installs the required dependencies for the backend.
 
 ### `npm run dev`
