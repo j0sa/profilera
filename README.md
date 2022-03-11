@@ -13,8 +13,9 @@ Installs the required dependencies for the backend.
 
 ### `npm run dev`
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-Access the backend on PORT 3001 (alt. 5000)
+Open [http://localhost:3000](http://localhost:3000) to view the client in your browser.\
+Open [http://localhost:3001](http://localhost:3001) to access the backend in your browser (alt. on PORT 5000).
 
-The page will reload when you make changes.\
+
+The client will reload when you make changes. The server will restart when changes have been made to it.\
 You may also see any lint errors in the console.
