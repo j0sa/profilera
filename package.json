@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
     "backend": "cd server && npm start",
-    "dev": "concurrently --kill-others \"npm run backend\" \"npm run client\""
+    "dev": "concurrently --kill-others \"npm run backend\" \"npm run client\"",
+    "install:client": "cd client && npm install",
+    "install:backend": "cd server && npm install",
+    "postinstall": "run-p install:*"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,10 @@
   },
   "homepage": "https://github.com/j0sa/profilera#readme",
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "postinstall": "^0.7.4"
   }
 }
