@@ -103,25 +103,25 @@ router
       });
   })
   .put((req, res, next) => {
-    const user = new userModel({
-      name: req.body.name,
-      password: req.body.password,
-      email: req.body.email,
-      admin: req.body.admin,
-      analysis: req.body.analysis,
-    });
-    userModel
-      .updateOne({ _id: req.params.id }, user)
-      .then(() => {
-        res.status(201).json({
-          message: "User updated successfully!",
-        });
-      })
-      .catch((error) => {
-        res.status(400).json({
-          error: error,
-        });
-      });
+    console.log(req.params.id);
+    userModel.replaceOne(
+      {
+        _id: req.params.id,
+      },
+      {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        admin: req.body.admin,
+      },
+      function (err) {
+        if (!err) {
+          res.send("Successfully updated user!");
+        } else {
+          res.send(err);
+        }
+      }
+    );
   })
   .delete((req, res, next) => {
     userModel
