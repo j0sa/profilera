@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
-const userModel = require("../models/Users");
+const userModel = require("../models/User");
 
 router.get("/", (req, res) => {
   userModel.find({}, (err, result) => {
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/users/new", async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = {
