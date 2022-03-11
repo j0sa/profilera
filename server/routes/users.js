@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const userModel = require("../models/User");
 const cors = require("cors");
+const { json } = require("body-parser");
 
 router.get("/", (req, res) => {
   userModel.find({}, (err, result) => {
@@ -15,7 +16,7 @@ router.get("/", (req, res) => {
 });
 
 // EMAIL IS UNIQUE
-router.post("/new", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = {
@@ -34,9 +35,9 @@ router.post("/new", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const userLogin = userModel.find((user) => user.name == req.body.name);
   console.log(userLogin);
   if (userLogin == null) {
+    const userLogin = userModel.find((user) => user.name == req.body.name);
     return res.status(400).send("No user with this name...");
   }
   try {
@@ -51,41 +52,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//inloggning kollar om namn och lösenord stämmer TODO
-//  app.post('/users/login', async (req, res) => {
-//     const userL = userModel.find(user => user.name == req.body.name)
-//     if (userL == null) {
-//       return res.status(400).send('Cannot find user')
-//     }
-//     try {
-//       if(await bcrypt.compare(req.body.password, userL.password)) {
-//         res.send('Success')
-//       } else {
-//         res.send('Not Allowed');
-//       }
-//     } catch {
-//       res.status(500).send();
-//     }
-//   });
-
-// router.get("/:id", cors(), async (req, res) => {
-//   var id = req.params.id;
-//   userModel.find({ _id: id }, function (err, users) {
-//     if (err) res.send(err);
-//     //console.log(id);
-//     res.json(users);
-//   });
-// });
-
-// router.get("/delete/:id", cors(), async (req, res) => {
-//   var id = req.params.id;
-//   userModel.findByIdAndDelete({ _id: id }, function (err) {
-//     if (err) return res.send(500, err);
-//     console.log(`User: ${id} was deleted...`);
-//     res.redirect("/users");
-//   });
-// });
-
 router
   .route("/:id")
   .get((req, res, next) => {
@@ -93,8 +59,8 @@ router
       .findOne({
         _id: req.params.id,
       })
-      .then((thing) => {
-        res.status(200).json(thing);
+      .then((user) => {
+        res.status(200).json(user);
       })
       .catch((error) => {
         res.status(404).json({
