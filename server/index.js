@@ -82,5 +82,9 @@ app.post("/users/login", async (req, res) => {
 //   });
 
 app.listen(port, () => {
-  console.log(`Server is running on PORT ${port}`);
+  console.log("[Server]::LISTEN:%s", port);
+});
+
+app.on("error", (error) => {
+  throw new Error(`[Server]::ERROR:${error.message}`);
 });
