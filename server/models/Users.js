@@ -21,10 +21,6 @@ const UserSchema = new mongoose.Schema({
         required: true,
       },
       analysis: {
-        analysisId: {
-            type: Number,
-            required: true,
-          },
           date: {
             type: Date,
             required: false,

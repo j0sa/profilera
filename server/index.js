@@ -1,3 +1,7 @@
+require('dotenv').config({
+    path: '../.env',
+    debug: true
+});
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -5,12 +9,13 @@ const userModel = require("./models/Users");
 const cors = require("cors");
 const bcrypt = require('bcrypt');
 
-//console.log(process.env);
+const port = process.env.PORT || 5000;
+const databaseURI = process.env.DATABASE_URI;
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.lqrvk.mongodb.net/newtest?retryWrites=true&w=majority");
+mongoose.connect(databaseURI);
 
  app.get("/getUsers", (req, res) => {
     userModel.find({}, (err, result) =>{
@@ -37,6 +42,24 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.lqrvk.mongodb.net/newtest?r
     } 
  });
 
+app.post('/users/login', async (req, res) => {
+    const userLogin = userModel.find(user => user.name == req.body.name);
+    console.log(userLogin);
+    if (userLogin == null) {
+        return res.status(400).send('No user with this name...');
+    };
+    try {
+        if(await bcrypt.compare(req.body.password, userLogin.password)) {
+            res.send('Successful!')
+        } else {
+            res.send('Error...')
+        }
+    } catch (error) {
+        res.status(500).send();
+        console.log(error);
+    }
+});
+
  //inloggning kollar om namn och lösenord stämmer TODO
 //  app.post('/users/login', async (req, res) => {
 //     const userL = userModel.find(user => user.name == req.body.name)
@@ -54,6 +77,6 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.lqrvk.mongodb.net/newtest?r
 //     }
 //   });
 
-app.listen(3001, () => {
-    console.log("server is running on PORT 3001");
+app.listen(port, () => {
+    console.log(`Server is running on PORT ${port}`);
 });
