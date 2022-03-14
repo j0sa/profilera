@@ -2,8 +2,6 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const userModel = require("../models/User");
-const cors = require("cors");
-const { json } = require("body-parser");
 
 router.get("/", (req, res) => {
   userModel.find({}, (err, result) => {
@@ -18,31 +16,32 @@ router.get("/", (req, res) => {
 // EMAIL IS UNIQUE
 router.post("/", async (req, res) => {
   try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = {
       name: req.body.name,
-      password: hashedPassword,
+      password: await bcrypt.hash(req.body.password, 10),
       email: req.body.email,
       admin: req.body.admin,
       analysis: req.body.analysis,
     };
     const newUser = new userModel(user);
     await newUser.save();
-    res.json(user);
+    res.status(200).json({
+      success: true,
+      message: "Successfully inserted user in database!",
+      user: user,
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: error });
   }
 });
 
 router.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  userModel.findOne({ email }).then((user) => {
+  userModel.findOne({ email: req.body.email }).then((user) => {
     if (!user)
       return res
         .status(400)
         .json({ success: false, message: "This user does not exist." });
-    bcrypt.compare(password, user.password, (err, data) => {
+    bcrypt.compare(req.body.password, user.password, (err, data) => {
       if (err) throw err;
       if (data) {
         return res
