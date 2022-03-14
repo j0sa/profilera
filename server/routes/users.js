@@ -52,26 +52,27 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/authenticate", (req, res, next) => {
-  userModel
-    .findOne({ email: req.body.email })
-    .then((user) => {
-      try {
-        if (bcrypt.compare(user.password, req.body.password)) {
-          console.log(
-            `Password: ${req.body.password} was correct. Hash: ${user.password}`
-          );
-          res.sendStatus(200);
-        }
-      } catch (error) {
-        res.sendStatus(500);
-        console.log(error);
+router.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  userModel.findOne({ email }).then((user) => {
+    if (!user)
+      return res
+        .status(400)
+        .json({ success: false, message: "This user does not exist." });
+    bcrypt.compare(password, user.password, (err, data) => {
+      if (err) throw err;
+      if (data) {
+        return res
+          .status(200)
+          .json({ success: true, message: "Login success." });
+      } else {
+        return res
+          .status(401)
+          .json({ success: false, message: "Invalid credentials." });
       }
-    })
-    .catch((error) => {
-      res.sendStatus(500);
-      console.log(error);
     });
+  });
 });
 
 router
