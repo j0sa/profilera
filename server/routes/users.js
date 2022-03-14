@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     await newUser.save();
     res.json(user);
   } catch {
-    res.status(500).send();
+    res.sendStatus(500);
   }
 });
 
@@ -38,18 +38,40 @@ router.post("/login", async (req, res) => {
   console.log(userLogin);
   if (userLogin == null) {
     const userLogin = userModel.find((user) => user.name == req.body.name);
-    return res.status(400).send("No user with this name...");
+    return res.sendStatus(400).send("No user with this name...");
   }
   try {
     if (await bcrypt.compare(req.body.password, userLogin.password)) {
-      res.send("Successful!");
+      res.sendStatus("Successful!");
     } else {
-      res.send("Error...");
+      res.sendStatus("Error...");
     }
   } catch (error) {
-    res.status(500).send();
+    res.sendStatus(500);
     console.log(error);
   }
+});
+
+router.post("/authenticate", (req, res, next) => {
+  userModel
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      try {
+        if (bcrypt.compare(user.password, req.body.password)) {
+          console.log(
+            `Password: ${req.body.password} was correct. Hash: ${user.password}`
+          );
+          res.sendStatus(200);
+        }
+      } catch (error) {
+        res.sendStatus(500);
+        console.log(error);
+      }
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+      console.log(error);
+    });
 });
 
 router
@@ -60,10 +82,10 @@ router
         _id: req.params.id,
       })
       .then((user) => {
-        res.status(200).json(user);
+        res.sendStatus(200).json(user);
       })
       .catch((error) => {
-        res.status(404).json({
+        res.sendStatus(404).json({
           error: error,
         });
       });
@@ -82,9 +104,9 @@ router
       },
       function (err) {
         if (!err) {
-          res.send("Successfully updated user!");
+          res.sendStatus("Successfully updated user!");
         } else {
-          res.send(err);
+          res.sendStatus(err);
         }
       }
     );
@@ -93,12 +115,12 @@ router
     userModel
       .deleteOne({ _id: req.params.id }) // deleteOne() is used to delete a single document, findOneAndDelete() returns the deleted document after having deleted it (in case you need its contents after the delete operation)
       .then(() => {
-        res.status(200).json({
+        res.sendStatus(200).json({
           message: "User Was deleted!",
         });
       })
       .catch((error) => {
-        res.status(400).json({
+        res.sendStatus(400).json({
           error: error,
         });
       });
