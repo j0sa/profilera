@@ -29,26 +29,8 @@ router.post("/", async (req, res) => {
     const newUser = new userModel(user);
     await newUser.save();
     res.json(user);
-  } catch {
-    res.sendStatus(500);
-  }
-});
-
-router.post("/login", async (req, res) => {
-  console.log(userLogin);
-  if (userLogin == null) {
-    const userLogin = userModel.find((user) => user.name == req.body.name);
-    return res.sendStatus(400).send("No user with this name...");
-  }
-  try {
-    if (await bcrypt.compare(req.body.password, userLogin.password)) {
-      res.sendStatus("Successful!");
-    } else {
-      res.sendStatus("Error...");
-    }
   } catch (error) {
-    res.sendStatus(500);
-    console.log(error);
+    res.status(500).json({ success: false, message: error });
   }
 });
 
@@ -83,11 +65,12 @@ router
         _id: req.params.id,
       })
       .then((user) => {
-        res.sendStatus(200).json(user);
+        res.status(200).json(user);
       })
       .catch((error) => {
-        res.sendStatus(404).json({
-          error: error,
+        res.status(400).json({
+          success: false,
+          message: error,
         });
       });
   })
@@ -105,9 +88,11 @@ router
       },
       function (err) {
         if (!err) {
-          res.sendStatus("Successfully updated user!");
+          res
+            .status(200)
+            .json({ success: true, message: "User was successfully updated!" });
         } else {
-          res.sendStatus(err);
+          res.status(401).json({ success: false, message: err });
         }
       }
     );
@@ -117,12 +102,14 @@ router
       .deleteOne({ _id: req.params.id }) // deleteOne() is used to delete a single document, findOneAndDelete() returns the deleted document after having deleted it (in case you need its contents after the delete operation)
       .then(() => {
         res.sendStatus(200).json({
+          success: true,
           message: "User Was deleted!",
         });
       })
       .catch((error) => {
-        res.sendStatus(400).json({
-          error: error,
+        res.status(400).json({
+          success: false,
+          message: error,
         });
       });
   });
