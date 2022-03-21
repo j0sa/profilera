@@ -2,7 +2,8 @@ import "./App.css";
 import logo from "./profileralogo.png";
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
-import { bounce,
+import {
+  bounce,
   bouceIn,
   bouceOut,
   bounceInDown,
@@ -77,13 +78,19 @@ import { bounce,
   zoomOutDown,
   zoomOutLeft,
   zoomOutRight,
-  zoomOutUp, } from "react-animations";
+  zoomOutUp,
+} from "react-animations";
 
 const Bounce = styled.div`
-  animation: 2s ${keyframes`${bounce}`} infinite;`;
+  animation: 2s ${keyframes`${bounce}`} infinite;
+`;
 
-  const FadeInUp = styled.div`animation: 2s ${keyframes`${fadeInUp}`} `;
-  const FadeInLeft = styled.div`animation: 2s ${keyframes`${fadeInLeft}`} `;
+const FadeInUp = styled.div`
+  animation: 2s ${keyframes`${fadeInUp}`};
+`;
+const FadeInLeft = styled.div`
+  animation: 2s ${keyframes`${fadeInLeft}`};
+`;
 // function App() {
 //   return (
 //     <div>
@@ -110,17 +117,22 @@ class ReactAnimations extends Component {
           </FadeInUp>{" "}
         </p>
         <div className="startinfotxt">
-              <FadeInLeft><hr></hr></FadeInLeft>
-              <FadeInLeft>Gain valuble insight regarding your customers with profilera.</FadeInLeft>
+          <FadeInLeft>
+            <hr></hr>
+          </FadeInLeft>
+          <FadeInLeft>
+            Gain valuble insight regarding your customers with profilera.
+          </FadeInLeft>
         </div>
 
         <div className="startinfotxt2">
-              <FadeInLeft><hr></hr></FadeInLeft>
-              <FadeInLeft>Enlightement is but a click away.</FadeInLeft>
+          <FadeInLeft>
+            <hr></hr>
+          </FadeInLeft>
+          <FadeInLeft>Enlightement is but a click away.</FadeInLeft>
         </div>
         <div className="btndiv">
-              
-              <button className="joinbtn">Join</button>
+          <button className="joinbtn">Join</button>
         </div>
       </div>
     );
