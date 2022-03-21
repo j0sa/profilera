@@ -1,8 +1,7 @@
 import "./App.css";
 //import logo from "./profileralogo.png";
-import React, { Component } from "react";
 //import styled, { keyframes } from "styled-components";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Info from "./Pages/Info";
 import Privacy from "./Pages/Privacy";
 import Splash from "./Pages/Splash";
