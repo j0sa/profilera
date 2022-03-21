@@ -3,7 +3,7 @@ import "./App.css";
 import React, { Component } from "react";
 //import styled, { keyframes } from "styled-components";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./Pages/Info";
+import Info from "./Pages/Info";
 import Privacy from "./Pages/Privacy";
 import Splash from "./Pages/Splash";
 import ErrorPage from "./Pages/ErrorPage";
