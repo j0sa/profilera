@@ -1,21 +1,19 @@
 import "./App.css";
-//import logo from "./profileralogo.png";
-//import styled, { keyframes } from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Info from "./Pages/Info";
-import Privacy from "./Pages/Privacy";
-import Splash from "./Pages/Splash";
-import ErrorPage from "./Pages/ErrorPage";
-import Analysis from "./Pages/Analysis";
+import Info from "./pages/Info";
+import Privacy from "./pages/Privacy";
+import Splash from "./pages/Splash";
+import ErrorPage from "./pages/ErrorPage";
+import Analysis from "./pages/Analysis";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Info />} />
-        <Route path="/analysis" element={<Analysis />} />
-        <Route path="/splash" element={<Splash />} />
-        <Route path="/privacy" element={<Privacy />} />
+        <Route index element={<Info />} />
+        <Route path="analysis" element={<Analysis />} />
+        <Route path="splash" element={<Splash />} />
+        <Route path="privacy" element={<Privacy />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

@@ -1,7 +1,7 @@
 import React from "react";
 
-function Privacy() {
-  return <div>Privacy page</div>;
-}
+const Privacy = () => {
+  return <h1>Privacy Page</h1>;
+};
 
 export default Privacy;

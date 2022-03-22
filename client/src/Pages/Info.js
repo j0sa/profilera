@@ -1,7 +1,7 @@
 import React from "react";
 
-function Home() {
-  return <div>Info page</div>;
-}
+const Info = () => {
+  return <h1 style={{ color: "red" }}>Home Page</h1>;
+};
 
-export default Home;
+export default Info;

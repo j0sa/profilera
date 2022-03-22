@@ -1,7 +1,7 @@
 import React from "react";
 
-function Splash() {
-  return <div>Splash page</div>;
-}
+const Splash = () => {
+  return <h1>Splash Page</h1>;
+};
 
 export default Splash;

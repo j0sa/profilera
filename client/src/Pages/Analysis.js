@@ -1,7 +1,7 @@
 import React from "react";
 
-function Analysis() {
-  return <div>Analysis page</div>;
-}
+const Analysis = () => {
+  return <h1>Analysis Page</h1>;
+};
 
 export default Analysis;
