@@ -1,7 +1,12 @@
 import React from "react";
+import video from "../assets/videos/video.mp4";
 
 const Info = () => {
-  return <h1 style={{ color: "red" }}>Home Page</h1>;
+  return (
+    <video autoPlay loop muted id="video">
+      <source src={video} type="video/mp4"></source>
+    </video>
+  );
 };
 
 export default Info;
