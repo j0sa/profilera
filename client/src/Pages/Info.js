@@ -1,12 +1,16 @@
 import React from "react";
 import "./css/Info.scss";
-import video from "../assets/videos/video.mp4";
+import VideoBg from "reactjs-videobg";
+import mp4 from "../assets/videos/video.mp4";
 
 const Info = () => {
   return (
-    <video autoPlay loop muted id="video">
-      <source src={video} type="video/mp4"></source>
-    </video>
+    <div>
+      <VideoBg>
+        <VideoBg.Source src={mp4} type="video/mp4" />
+      </VideoBg>
+      <h1>WTF</h1>
+    </div>
   );
 };
 
