@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/Info.scss";
 import video from "../assets/videos/video.mp4";
 
 const Info = () => {
