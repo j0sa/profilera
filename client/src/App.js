@@ -6,12 +6,14 @@ import Info from "./Pages/Info";
 import Privacy from "./Pages/Privacy";
 import Splash from "./Pages/Splash";
 import ErrorPage from "./Pages/ErrorPage";
+import Analysis from "./Pages/Analysis";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Info />} />
+        <Route path="/analysis" element={<Analysis />} />
         <Route path="/splash" element={<Splash />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<ErrorPage />} />
