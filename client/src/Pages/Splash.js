@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/Splash.scss";
 import VideoBg from "reactjs-videobg";
-import mp4 from "../assets/videos/video.mp4";
+import mp4 from "../assets/videos/backgroundAnimation.mp4";
 
 const Splash = () => {
   return( <div>
