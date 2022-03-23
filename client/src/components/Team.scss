@@ -1,0 +1,27 @@
+.meet-the-team-div {
+  margin: auto;
+  text-align: center;
+  padding-top: 70em;
+  width: 50em;
+  z-index: 1;
+}
+
+.each-slide {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.each-slide > div {
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 50em;
+  width: 50em;
+}
+
+.each-slide span {
+  font-size: xx-large;
+  color: black;
+  text-align: center;
+}

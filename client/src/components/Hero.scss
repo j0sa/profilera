@@ -1,0 +1,30 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.hero_title {
+  position: absolute;
+  left: 1em;
+  padding-top: 30em;
+  color: #e7dfdd;
+  text-align: left;
+  z-index: 1;
+}
+
+.hero_subtitle {
+  margin-left: 1em;
+  padding-top: 34em;
+  width: 20%;
+  color: #e7dfdd;
+  text-align: left;
+  z-index: 1;
+}

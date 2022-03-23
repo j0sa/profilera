@@ -1,49 +1,14 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
 
 .App-link {
   color: #61dafb;
 }
 
-.welcometxt {
-  text-align: center;
-  font-size: large;
-  color:#E7DFDD;
-}
-
 body {
-  background-color: #0E0B16;
-}
-
-.logo {
-  text-align: left;
-  font-size: medium;
-  color: #E7DFDD;
-}
-
-.startinfotxt {
-  color: #E7DFDD;
-  width: 10%;
-  margin-top: 4%;
-}
-.startinfotxt2 {
-  color: #E7DFDD;
-  width: 5%;
-  margin-left: 10%;
-  margin-top: 5%;
-}
-
-.joinbtn{
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #4717F6;
-  color: #E7DFDD;
-  border-radius: 4px;
-  font-size: large;
-}
-
-.btndiv{
-  text-align: center;
-  margin-top: 30%;
+  background-color: #0e0b16;
 }
