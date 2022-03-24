@@ -28,6 +28,7 @@
     "npm-run-all": "^4.1.5"
   },
   "dependencies": {
-    "postinstall": "^0.7.4"
+    "postinstall": "^0.7.4",
+    "react-reveal": "^1.2.2"
   }
 }
