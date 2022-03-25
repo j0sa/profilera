@@ -112,8 +112,9 @@ const Splash = () => {
         <Slide>
           {slideImages.map((slideImage, index) => (
             <div className="each-slide" key={index}>
+              <h2>{slideImage.caption}</h2>
               <div style={{ backgroundImage: `url(${slideImage.url})` }}>
-                <span>{slideImage.caption}</span>
+                
               </div>
               <p class="info-text-p">{slideImage.infotxt} </p>
             </div>
