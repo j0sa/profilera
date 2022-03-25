@@ -54,7 +54,7 @@
 .use-case-text-div {
   position: absolute;
   right: 1em;
-  padding-top: 50em;
+  padding-top: 70%;
   color: #e7dfdd;
   width: 45%;
   text-align: center;
@@ -71,13 +71,30 @@
   z-index: 1;
 }
 
-.meet-the-team-div {
+.meet-the-team-slide-div {
   margin: auto;
   text-align: center;
-  padding-top: 70em;
-  width: 50em;
+  display: inline-block;
+  padding-left:18%;
+  width: 20vw;
   z-index: 1;
 }
+
+.meet-the-team-text-div{
+    text-align: left;
+    color: #e7dfdd;
+    padding-top: 110%;
+    padding-left: 2%;
+    display: inline-block;
+    width: 20%;
+    z-index: 1;
+}
+
+.meet-the-team-div{
+    width: 100%;
+    z-index: 1;
+}
+
 .each-slide {
   width: 100%;
   height: 100%;
@@ -85,15 +102,21 @@
 }
 
 .each-slide > div {
+  border-radius: 25px;
   align-items: center;
   justify-content: center;
   background-size: cover;
-  height: 50em;
-  width: 50em;
+  height: 30vw;
+  width: 20vw;
 }
 
 .each-slide span {
   font-size: xx-large;
   color: black;
   text-align: center;
+}
+
+.info-text-p{
+    color: #e7dfdd;
+    font-size: x-large;
 }
