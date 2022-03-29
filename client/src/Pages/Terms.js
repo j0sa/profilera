@@ -5,7 +5,7 @@ const Terms = () => {
   return(
     <div class="terms-text-div">
 
-<h1 id="title-h1">Terms and Conditions for Profilera</h1>
+<h1 id="title-h1">Terms and Conditions</h1>
 
 <h2>Introduction</h2> 
   
