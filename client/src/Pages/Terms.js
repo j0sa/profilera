@@ -3,7 +3,7 @@ import "./css/Terms.scss";
 
 const Terms = () => {
   return(
-    <div>
+    <div class="terms-text-div">
 
 <h1>Terms and Conditions for Profilera</h1>
 
