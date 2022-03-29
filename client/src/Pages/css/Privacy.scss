@@ -1,0 +1,79 @@
+html {
+  line-height: 1.5;
+}
+
+main {
+  display: block;
+}
+
+.privacy {
+  background-color: #0e0b16;
+  color: #e7dfdd;
+  width: 100%;
+  counter-reset: section;
+  --vh: 3.86px;
+}
+
+.privacy h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+p,
+pre,
+ul {
+  margin-top: 0;
+}
+
+h1 {
+  margin: 0.67em 0;
+}
+
+.privUpt {
+  color: #feb728;
+}
+
+.privacy aside {
+  margin-bottom: 1em;
+}
+
+p {
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.privacy p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.privacy ol li {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+  position: relative;
+}
+
+.privacy section > ol > li::before {
+  left: -5rem;
+}
+
+.privacy section > ol > li::before {
+  color: #bdbdbd;
+  content: counter(section);
+  counter-increment: section;
+  display: inline-block;
+  left: -3rem;
+  margin-top: 0.5rem;
+  position: absolute;
+}
