@@ -54,6 +54,7 @@ const Terms = () => {
 
 <h2>Limitation of liability</h2>
 
+<p> EXCEPT AS EXPRESSLY STATED IN THESE TERMS, PROFILERA DOES NOT MAKE ANY REPRESENTATIONS OR WARRANTIES AND EXPLICITLY DISCLAIMS ALL OTHER REPRESENTATIONS AND WARRANTIES, WHETHER EXPRESS, IMPLIED, WRITTEN, ORAL OR STATUTORY.</p>
 <p>In no event shall Profilera, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract.  Profilera, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.</p>
 
 <h2>Indemnification</h2>
