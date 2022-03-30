@@ -470,9 +470,106 @@ const Privacy = () => {
             </ol>
           </li>
         </ol>
+        <br></br>
+        <br></br>
         <h2>Contact us</h2>
         <p>E-mail: email.</p>
       </section>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <h2 className="h1">Cookie Policy</h2>
+      <p>
+        Cookies (and equivalent devices in the context of mobile devices) are
+        small text files that are placed on your computer or device by websites
+        that you visit and mobile applications you use. They are widely used in
+        order to make websites and applications work, or work more efficiently,
+        as well as to provide information to the owners of the sites and apps.
+        The below explains the main cookies we use in our Website and App and
+        why.
+      </p>
+      <br></br>
+      <br></br>
+      <h2>Third Party Cookies</h2>
+      <p>
+        Some cookies may be set by third parties when you visit this website.
+        These third parties may be suppliers who partner with us to deliver our
+        Services, companies that participate with us in affiliate marketing
+        programmes and other third parties. These cookies are controlled by
+        third parties, so please check these third-party websites for more
+        information about these cookies and how to manage them.
+      </p>
+      <br></br>
+      <br></br>
+      <h2>How do I change my cookie settings</h2>
+      <p>
+        Most web browsers and mobile devices allow some control of most cookies
+        and similar devices through the browser and mobile device settings. To
+        find out more about cookies, including how to see what cookies have been
+        set, visit{" "}
+        <a href="https://www.aboutcookies.org/">www.aboutcookies.org</a>.
+      </p>
+      <p>Find out how to manage cookies on popular browsers:</p>
+      <ul>
+        <li>
+          <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=en">
+            Google Chrome
+          </a>
+        </li>
+        <li>
+          <a href="https://support.microsoft.com/en-gb/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-c582b4e640dd">
+            Microsoft Edge
+          </a>
+        </li>
+        <li>
+          <a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=enable-and-disable-cookies-website-preferences&redirectlocale=en-US">
+            Mozilla Firefox
+          </a>
+        </li>
+        <li>
+          <a href="https://support.microsoft.com/en-gb/windows/delete-and-manage-cookies-168dab11-0753-043d-7c16-ede5947fc64d">
+            Microsoft Internet Explorer
+          </a>
+        </li>
+        <li>
+          <a href="https://help.opera.com/en/latest/web-preferences/">Opera</a>
+        </li>
+        <li>
+          <a href="https://support.apple.com/en-gb/safari">Apple Safari</a>
+        </li>
+      </ul>
+      <p>
+        To find information relating to other website browsers, visit the
+        browser developer’s website. Your mobile or tablet device provider may
+        also provide you with additional cookie and browser control options,
+        which may be available to you in your device settings - please consult
+        your device settings for such device-specific controls (if applicable).
+      </p>
+      <p>
+        To find out more about Google Analytics and to learn how to opt out,
+        please visit:
+      </p>
+      <ul>
+        <li>
+          <a href="https://policies.google.com/technologies/partner-sites">
+            How Google uses data when you use our partners’ sites or apps
+          </a>
+          , or
+        </li>
+        <li>
+          <a href="https://tools.google.com/dlpage/gaoptout/">
+            https://tools.google.com/dlpage/gaoptout/
+          </a>
+          .
+        </li>
+      </ul>
     </article>
   );
 };
