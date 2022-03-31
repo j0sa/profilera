@@ -32,12 +32,12 @@ const slideImages = [
   {
     url: "./kristijanpic.jpg",
     caption: "Kristijan Majkic",
-    infotxt: "Developer, Freethinker and Modern-Day Renaissance Man"
+    infotxt: "Developer, Freethinker and Modern-Day Renaissance Man",
   },
   {
     url: "/jonaspic.jpg",
     caption: "Jonas Samuelsson",
-    infotxt: "Developer"
+    infotxt: "Developer",
   },
 ];
 
@@ -94,44 +94,38 @@ const Splash = () => {
       <div class="use-case-text-how-div">
         <Fade left>
           <h2>
-            How do we accomplish this? 
-            By offering a service that assists you in finding useful patterns within your customer base.
+            How do we accomplish this? By offering a service that assists you in
+            finding useful patterns within your customer base.
           </h2>
         </Fade>
       </div>
 
-<div class="meet-the-team-div">
+      <div class="meet-the-team-div">
+        <div class="meet-the-team-text-div">
+          <Fade left>
+            <h2>Meet our team!</h2>
+            <h3>
+              We are a small but dedicated and commited team of developers.
+            </h3>
+          </Fade>
+        </div>
 
-<div class="meet-the-team-text-div">
-        <Fade left>
-        <h2>
-          Meet our team!
-        </h2>
-        <h3>
-          We are a small but dedicated and commited team of developers.
-        </h3>
-
-        </Fade>
-
+        <div className="meet-the-team-slide-div">
+          <Fade up>
+            <Slide>
+              {slideImages.map((slideImage, index) => (
+                <div className="each-slide" key={index}>
+                  <h2>{slideImage.caption}</h2>
+                  <div
+                    style={{ backgroundImage: `url(${slideImage.url})` }}
+                  ></div>
+                  <p class="info-text-p">{slideImage.infotxt} </p>
+                </div>
+              ))}
+            </Slide>
+          </Fade>
+        </div>
       </div>
-
-<div className="meet-the-team-slide-div">
-        <Fade up>
-        <Slide>
-          {slideImages.map((slideImage, index) => (
-            <div className="each-slide" key={index}>
-              <h2>{slideImage.caption}</h2>
-              <div style={{ backgroundImage: `url(${slideImage.url})` }}>
-                
-              </div>
-              <p class="info-text-p">{slideImage.infotxt} </p>
-            </div>
-          ))}
-        </Slide>
-        </Fade>
-      </div>
-
-</div>
 
       <div class="CTA-div">
         <Fade up>
