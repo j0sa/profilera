@@ -30,12 +30,12 @@ const theme = createTheme({
 
 const slideImages = [
   {
-    url: "https://media.foretagsforumet.se/2020/09/Skillnaden-mellan-fysisk-och-juridisk-person.jpg",
+    url: "./kristijanpic.jpg",
     caption: "Kristijan Majkic",
-    infotxt: "Delevoper"
+    infotxt: "Developer, Freethinker and Modern-Day Renaissance Man"
   },
   {
-    url: "https://avatars.githubusercontent.com/u/47446346?v=4",
+    url: "/jonaspic.jpg",
     caption: "Jonas Samuelsson",
     infotxt: "Developer"
   },
@@ -86,8 +86,16 @@ const Splash = () => {
             profilera strive towards highlighting and presenting you with the
             most valuable information about your customer base so that you
             aren’t exposed to the risk of missing out on that big sale ever
-            again.The way we accomplish this is by offering a service that
-            assists you in finding useful patterns within your customer base.
+            again.
+          </h2>
+        </Fade>
+      </div>
+
+      <div class="use-case-text-how-div">
+        <Fade left>
+          <h2>
+            How do we accomplish this? 
+            By offering a service that assists you in finding useful patterns within your customer base.
           </h2>
         </Fade>
       </div>
@@ -108,7 +116,7 @@ const Splash = () => {
       </div>
 
 <div className="meet-the-team-slide-div">
-        
+        <Fade up>
         <Slide>
           {slideImages.map((slideImage, index) => (
             <div className="each-slide" key={index}>
@@ -120,6 +128,7 @@ const Splash = () => {
             </div>
           ))}
         </Slide>
+        </Fade>
       </div>
 
 </div>
