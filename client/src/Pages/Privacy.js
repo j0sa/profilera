@@ -8,18 +8,18 @@ const Privacy = () => {
       <aside>Updated 28 Mars 2022</aside>
       <p>
         We are committed to respecting your privacy and protecting your personal
-        data. This privacy and cookie policy (“Policy”) sets out how we use data
-        relating to you and applies to all use of your personal data by
-        Profilera (<strong>“we”</strong>, <strong>“us”</strong> or{" "}
-        <strong>“our”</strong>).
+        data. This privacy and cookie policy (<strong>“Policy”</strong>) sets
+        out how we use data relating to you and applies to all use of your
+        personal data by Profilera (<strong>“we”</strong>, <strong>“us”</strong>{" "}
+        or <strong>“our”</strong>).
       </p>
       <p>
         This Policy sets out the basis on which personal data will be processed
         by us. This Policy applies to personal data we may collect from you, or
         that you provide to us, through or in connection with our website at:
-        http://www.profilera.net. (henceforth the "Website"). Please read the
-        Policy carefully to understand our views and practices regarding your
-        personal data.
+        http://www.profilera.net. (the <strong>"Website"</strong>). Please read
+        the Policy carefully to understand our views and practices regarding
+        your personal data.
       </p>
       <p>
         We will only collect and process information about you in accordance
@@ -41,8 +41,6 @@ const Privacy = () => {
         If you have any concerns over privacy, or this Policy, contact us at vår
         email.
       </p>
-      <br></br>
-      <br></br>
       <section>
         <ol>
           <li>
@@ -495,8 +493,6 @@ const Privacy = () => {
         The below explains the main cookies we use in our Website and App and
         why.
       </p>
-      <br></br>
-      <br></br>
       <h2>Third Party Cookies</h2>
       <p>
         Some cookies may be set by third parties when you visit this website.
@@ -506,8 +502,6 @@ const Privacy = () => {
         third parties, so please check these third-party websites for more
         information about these cookies and how to manage them.
       </p>
-      <br></br>
-      <br></br>
       <h2>How do I change my cookie settings</h2>
       <p>
         Most web browsers and mobile devices allow some control of most cookies
