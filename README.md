@@ -25,6 +25,6 @@ Open [http://localhost:3001](http://localhost:3001) to access the backend in you
 The client will reload when you make changes. The server will restart when changes have been made to it.\
 You may also see any lint errors in the console.
 
-##Prerequisites
+## Prerequisites
 
 The software also requires a .env file to be present in the server folder. This contains global variables, such as ports and the string needed to connetct to the database. Contact the authors for the further information.
