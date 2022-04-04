@@ -7,6 +7,7 @@ import "react-slideshow-image/dist/styles.css";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
+import CookieConsent from "react-cookie-consent";
 
 const theme = createTheme({
   status: {
@@ -138,6 +139,19 @@ const Splash = () => {
           </Button>
         </Fade>
       </div>
+
+      <CookieConsent
+        location="bottom"
+        buttonText="I agree"
+        enableDeclineButton="true"
+        declineButtonText="Reject"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        declineButtonStyle={{ color: "#e7dfdd", fontSize: "13px" }}
+        expires={150}
+      >
+        This website uses cookies to enhance the user experience.{" "}
+      </CookieConsent>
     </div>
   );
 };
