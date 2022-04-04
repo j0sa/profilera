@@ -142,15 +142,36 @@ const Splash = () => {
 
       <CookieConsent
         location="bottom"
-        buttonText="I agree"
+        buttonText="Accept"
         enableDeclineButton="true"
         declineButtonText="Reject"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        declineButtonStyle={{ color: "#e7dfdd", fontSize: "13px" }}
+        style={{ background: "#0E0B16" }}
+        buttonStyle={{
+          color: "#E7DFDD",
+          fontSize: "13px",
+          borderRadius: "4px",
+          background: "#A239CA",
+          fontWeight: 500,
+          fontSize: "0.9375rem",
+          letterSpacing: "0.02857em",
+          padding: "8px 44px",
+        }}
+        declineButtonStyle={{
+          color: "#0E0B16",
+          fontSize: "13px",
+          borderRadius: "4px",
+          background: "#ffffff",
+          fontWeight: 500,
+          fontSize: "0.9375rem",
+          letterSpacing: "0.02857em",
+          padding: "8px 22px",
+        }}
         expires={150}
       >
         This website uses cookies to enhance the user experience.{" "}
+        <a className="cookie-consent-privacy" href="">
+          Learn more about cookies.
+        </a>
       </CookieConsent>
     </div>
   );
