@@ -18,6 +18,28 @@ function App() {
         <Route path="terms" element={<Terms />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <footer className="footer">
+        <span id="profilera-trademark">
+          © 2022 Profilera Limited. All rights reserved.
+        </span>
+        <ul>
+          <li>
+            <button className="footer-button">Manifesto</button>
+          </li>
+          <li>
+            <button className="footer-button">Team</button>
+          </li>
+          <li>
+            <button className="footer-button">Info</button>
+          </li>
+          <li>
+            <button className="footer-button">Privacy</button>
+          </li>
+          <li>
+            <button className="footer-button">Terms</button>
+          </li>
+        </ul>
+      </footer>
     </Router>
   );
 }

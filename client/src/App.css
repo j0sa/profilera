@@ -1,7 +1,12 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
 }
-
 
 .App-link {
   color: #61dafb;
@@ -10,40 +15,110 @@
 .welcometxt {
   text-align: center;
   font-size: large;
-  color:#E7DFDD;
+  color: #e7dfdd;
 }
 
 body {
-  background-color: #0E0B16;
+  background-color: #0e0b16;
 }
 
 .logo {
   text-align: left;
   font-size: medium;
-  color: #E7DFDD;
+  color: #e7dfdd;
 }
 
 .startinfotxt {
-  color: #E7DFDD;
+  color: #e7dfdd;
   width: 10%;
   margin-top: 4%;
 }
 .startinfotxt2 {
-  color: #E7DFDD;
+  color: #e7dfdd;
   width: 5%;
   margin-left: 10%;
   margin-top: 5%;
 }
 
-.joinbtn{
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #4717F6;
-  color: #E7DFDD;
+.joinbtn {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #4717f6;
+  color: #e7dfdd;
   border-radius: 4px;
   font-size: large;
 }
 
-.btndiv{
+.btndiv {
   text-align: center;
   margin-top: 30%;
+}
+
+ul {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 40px;
+  justify-items: center;
+  margin: auto;
+  list-style: none;
+}
+
+.footer-button {
+  color: #e7dfdd;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 #a239ca;
+  border: none;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02857em;
+}
+
+.footer-button:hover {
+  box-shadow: inset 0 -1.2em 0 #a239ca;
+  cursor: pointer;
+}
+
+/* li:last-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+} */
+
+.footer {
+  display: flex;
+  height: 8vh;
+  width: 100%;
+  background-color: #0e0b16;
+  line-height: 1.3;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#profilera-trademark {
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  color: #e7dfdd;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02857em;
+  line-height: 18px;
+  padding-left: 10px;
+}
+
+@media (min-width: 700px) {
+  ul {
+    grid-auto-flow: column;
+  }
+  #profilera-trademark {
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center;
+    text-align: center;
+    padding-left: 0px;
+  }
 }
