@@ -314,14 +314,15 @@ const Privacy = () => {
               </li>
               <li>
                 To make a request in relation to any of the aforementioned
-                rights, please send your request to email.
+                rights, please send your request to contactprofilera@gmail.com.
               </li>
               <li>
                 You may request deletion of your personal data by sending an
-                e-mail to email. Please note that some information may remain in
-                our private records after deletion. We may use any aggregated
-                data derived from or incorporating your personal data but not in
-                any manner that would identify you personally.
+                e-mail to contactprofilera@gmail.com. Please note that some
+                information may remain in our private records after deletion. We
+                may use any aggregated data derived from or incorporating your
+                personal data but not in any manner that would identify you
+                personally.
               </li>
             </ol>
           </li>
@@ -426,7 +427,8 @@ const Privacy = () => {
               <li>
                 If you would like to find out more about these safeguards or if
                 you have any other queries or comments in relation to this
-                Policy, please let us know by emailing us at email.
+                Policy, please let us know by emailing us at
+                contactprofilera@gmail.com.
               </li>
             </ol>
           </li>
@@ -437,8 +439,9 @@ const Privacy = () => {
                 We do not use the Website to knowingly solicit data from or
                 market to children. If a parent or guardian becomes aware that
                 his or her child has provided us with information without their
-                consent, he or she should contact us at: email. We will delete
-                such information within a reasonable time.
+                consent, he or she should contact us at:
+                contactprofilera@gmail.com. We will delete such information
+                within a reasonable time.
               </li>
             </ol>
           </li>
@@ -471,7 +474,7 @@ const Privacy = () => {
         <br></br>
         <br></br>
         <h2>Contact us</h2>
-        <p>E-mail: email.</p>
+        <p>E-mail: contactprofilera@gmail.com</p>
       </section>
       <br></br>
       <br></br>
