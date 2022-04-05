@@ -131,5 +131,24 @@
 }
 
 .cookie-consent-privacy {
+  color: #E7DFDD;
+  text-decoration: underline;
+  border: none;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02857em;
+}
+
+.cookie-consent-privacy:hover {
+  cursor: pointer;
   color: white;
+}
+
+.cookie-consent-text {
+  color: #E7DFDD;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02857em;
 }

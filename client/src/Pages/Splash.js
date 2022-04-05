@@ -7,7 +7,8 @@ import "react-slideshow-image/dist/styles.css";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-import CookieConsent from "react-cookie-consent";
+import CookieConsent, { Cookies } from "react-cookie-consent";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   status: {
@@ -43,6 +44,7 @@ const slideImages = [
 ];
 
 const Splash = () => {
+  let navigate = useNavigate();
   return (
     <div className="splash-page">
       <VideoBg>
@@ -141,37 +143,49 @@ const Splash = () => {
       </div>
 
       <CookieConsent
+        debug={true}
         location="bottom"
         buttonText="Accept"
-        enableDeclineButton="true"
+        enableDeclineButton
         declineButtonText="Reject"
+        buttonId="accept-button"
+        declineButtonId="decline-button"
+        buttonClasses="cookie-consent-buttons"
         style={{ background: "#0E0B16" }}
         buttonStyle={{
           color: "#E7DFDD",
-          fontSize: "13px",
           borderRadius: "4px",
           background: "#A239CA",
           fontWeight: 500,
           fontSize: "0.9375rem",
           letterSpacing: "0.02857em",
           padding: "8px 44px",
+          textTransform: "uppercase",
         }}
         declineButtonStyle={{
           color: "#0E0B16",
-          fontSize: "13px",
           borderRadius: "4px",
           background: "#ffffff",
           fontWeight: 500,
           fontSize: "0.9375rem",
           letterSpacing: "0.02857em",
           padding: "8px 22px",
+          opacity: "60%",
+          textTransform: "uppercase",
         }}
         expires={150}
       >
-        This website uses cookies to enhance the user experience.{" "}
-        <a className="cookie-consent-privacy" href="">
+        <span className="cookie-consent-text">
+          This website uses cookies to enhance the user experience.{" "}
+        </span>
+        <button
+          className="cookie-consent-privacy"
+          onClick={() => {
+            navigate("/privacy");
+          }}
+        >
           Learn more about cookies.
-        </a>
+        </button>
       </CookieConsent>
     </div>
   );
