@@ -32,12 +32,12 @@ const theme = createTheme({
 
 const slideImages = [
   {
-    url: "./kristijanpic.jpg",
+    url: "../assets/images/kristijan.jpg",
     caption: "Kristijan Majkic",
     infotxt: "Developer, Freethinker and Modern-Day Renaissance Man",
   },
   {
-    url: "/jonaspic.jpg",
+    url: "../assets/images/jonaspic.jpg",
     caption: "Jonas Samuelsson",
     infotxt: "Developer",
   },

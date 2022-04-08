@@ -96,6 +96,7 @@ ul {
   position: absolute;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 #profilera-trademark {
@@ -108,6 +109,7 @@ ul {
   letter-spacing: 0.02857em;
   line-height: 18px;
   padding-left: 10px;
+  z-index: 2;
 }
 
 @media (min-width: 700px) {
@@ -119,6 +121,6 @@ ul {
     align-items: center; /* Vertical center alignment */
     justify-content: center;
     text-align: center;
-    padding-left: 0px;
+    padding-left: 10px;
   }
 }

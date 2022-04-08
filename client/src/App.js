@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Link,
+} from "react-router-dom";
 import Info from "./pages/Info";
 import Privacy from "./pages/Privacy";
 import Splash from "./pages/Splash";
