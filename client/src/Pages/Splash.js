@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import { useNavigate } from "react-router-dom";
+import kristijanPic from "../assets/images/kristijanpic.jpg";
+import jonasPic from "../assets/images/jonaspic.jpg";
 
 const theme = createTheme({
   status: {
@@ -32,12 +34,12 @@ const theme = createTheme({
 
 const slideImages = [
   {
-    url: "../assets/images/kristijan.jpg",
+    url: kristijanPic,
     caption: "Kristijan Majkic",
     infotxt: "Developer, Freethinker and Modern-Day Renaissance Man",
   },
   {
-    url: "../assets/images/jonaspic.jpg",
+    url: jonasPic,
     caption: "Jonas Samuelsson",
     infotxt: "Developer",
   },
