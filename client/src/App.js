@@ -30,19 +30,54 @@ function App() {
         </span>
         <ul>
           <li>
-            <button className="footer-button">Manifesto</button>
+            <form>
+              <button
+                formaction="http://localhost:3000/splash/"
+                className="footer-button"
+              >
+                Manifesto
+              </button>
+            </form>
           </li>
           <li>
-            <button className="footer-button">Team</button>
+            <from>
+              <button
+                formaction="http://localhost:3000/splash/"
+                className="footer-button"
+              >
+                Team
+              </button>
+            </from>
           </li>
           <li>
-            <button className="footer-button">Info</button>
+            <form>
+              <button
+                formaction="http://localhost:3000/"
+                className="footer-button"
+              >
+                Info
+              </button>
+            </form>
           </li>
           <li>
-            <button className="footer-button">Privacy</button>
+            <form>
+              <button
+                formaction="http://localhost:3000/privacy/"
+                className="footer-button"
+              >
+                Privacy
+              </button>
+            </form>
           </li>
           <li>
-            <button className="footer-button">Terms</button>
+            <form>
+              <button
+                formaction="http://localhost:3000/terms/"
+                className="footer-button"
+              >
+                Terms
+              </button>
+            </form>
           </li>
         </ul>
       </footer>
