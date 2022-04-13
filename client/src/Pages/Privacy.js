@@ -55,7 +55,7 @@ const Privacy = () => {
                   Website support / enquiry information (information we receive
                   when you get in touch with us via our website):
                 </h3>
-                <ul>
+                <ul class="unordered-list">
                   <li>Name;</li>
                   <li>Contact details (address, phone number, email);</li>
                   <li>
@@ -127,7 +127,7 @@ const Privacy = () => {
               <li>
                 <h3>Email Newsletter</h3>
                 <p>(if we operate them):</p>
-                <ul>
+                <ul class="unordered-list">
                   <li>Your email address; and</li>
                   <li>
                     Other information collected and clearly identifiable to you
@@ -196,7 +196,7 @@ const Privacy = () => {
                 Personal data provided to us in the use of our products and
                 services:
               </h3>
-              <ul>
+              <ul class="unordered-list">
                 <li>Your name;</li>
                 <li>Your email address; and</li>
                 <li>Etc</li>
@@ -260,7 +260,7 @@ const Privacy = () => {
                 (to be collected automatically when you use our products or
                 services):
               </p>
-              <ul>
+              <ul class="unordered-list">
                 <li>Your email address;</li>
                 <li>Your operating system and platform; and</li>
                 <li>Your time zone setting and general location</li>
@@ -288,7 +288,7 @@ const Privacy = () => {
                 relating to you. We aim to comply without undue delay, and
                 within one month at the latest, in response to any requests
                 submitted by you to us:
-                <ul>
+                <ul class="unordered-list">
                   <li>
                     for a copy of personal data we are processing about you
                     and/or to have inaccuracies corrected;
@@ -514,7 +514,7 @@ const Privacy = () => {
         <a href="https://www.aboutcookies.org/">www.aboutcookies.org</a>.
       </p>
       <p>Find out how to manage cookies on popular browsers:</p>
-      <ul>
+      <ul class="unordered-list">
         <li>
           <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=en">
             Google Chrome
@@ -553,7 +553,7 @@ const Privacy = () => {
         To find out more about Google Analytics and to learn how to opt out,
         please visit:
       </p>
-      <ul>
+      <ul class="unordered-list">
         <li>
           <a href="https://policies.google.com/technologies/partner-sites">
             How Google uses data when you use our partners’ sites or apps

@@ -42,7 +42,7 @@ const Terms = () => {
 
       <p>You are specifically restricted from all of the following:</p>
 
-      <ul>
+      <ul id="restrictions-list">
         <li>publishing any Website material in any other media;</li>
         <li>
           selling, sublicensing and/or otherwise commercializing any Website
