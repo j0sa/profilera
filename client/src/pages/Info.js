@@ -2,14 +2,65 @@ import React from "react";
 import "./css/Info.scss";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 const Info = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div>
       <div className="profile-btn-div">
-        <Button variant="contained" color="secondary" size="large">
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          onClick={handleClickOpen}
+        >
           Log in
         </Button>
+
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>Log In</DialogTitle>
+          <DialogContent>
+            <DialogContentText>Enter email:</DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Email Address"
+              type="email"
+              fullWidth
+              variant="standard"
+            />
+            <h1></h1>
+            <DialogContentText>Enter password:</DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={handleClose}>Log in</Button>
+          </DialogActions>
+        </Dialog>
       </div>
       <div className="info-txt-customer-segmentation-div">
         <Fade left>
