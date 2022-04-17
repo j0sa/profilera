@@ -10,15 +10,19 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 const Info = () => {
-  const [open, setOpen] = React.useState(false);
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const [openRegister, setOpenRegister] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const closeLoginOpenRegister = () => {
+    setOpenLogin(false);
+    setOpenRegister(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const closeRegisterOpenLogin = () => {
+    setOpenRegister(false);
+    setOpenLogin(true);
   };
+
   return (
     <div>
       <div className="profile-btn-div">
@@ -26,28 +30,24 @@ const Info = () => {
           variant="contained"
           color="secondary"
           size="large"
-          onClick={handleClickOpen}
+          onClick={() => setOpenLogin(true)}
         >
-          Log in
+          Profile
         </Button>
 
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Log In</DialogTitle>
+        <Dialog open={openLogin} onClose={() => setOpenLogin(false)}>
+          <DialogTitle>Login</DialogTitle>
           <DialogContent>
-            <DialogContentText>Enter email:</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Email Address"
+              label="Email"
               type="email"
               fullWidth
               variant="standard"
             />
-            <h1></h1>
-            <DialogContentText>Enter password:</DialogContentText>
             <TextField
-              autoFocus
               margin="dense"
               id="password"
               label="Password"
@@ -56,12 +56,56 @@ const Info = () => {
               variant="standard"
             />
           </DialogContent>
+          <DialogContentText>
+            <button
+              className="dialogFormButtons"
+              onClick={closeLoginOpenRegister}
+            >
+              I Don't Have and Account
+            </button>
+          </DialogContentText>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleClose}>Log in</Button>
+            <Button onClick={() => setOpenLogin(false)}>Cancel</Button>
+            <Button onClick={() => setOpenLogin(false)}>Login</Button>
+          </DialogActions>
+        </Dialog>
+
+        <Dialog open={openRegister} onClose={() => setOpenRegister(false)}>
+          <DialogTitle>Register</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Email"
+              type="email"
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogContentText>
+            <button
+              className="dialogFormButtons"
+              onClick={closeRegisterOpenLogin}
+            >
+              I Already Have an Account
+            </button>
+          </DialogContentText>
+          <DialogActions>
+            <Button onClick={() => setOpenRegister(false)}>Cancel</Button>
+            <Button onClick={() => setOpenRegister(false)}>Register</Button>
           </DialogActions>
         </Dialog>
       </div>
+
       <div className="info-txt-customer-segmentation-div">
         <Fade left>
           <h1> What is customer segmentation and what are personas?</h1>
