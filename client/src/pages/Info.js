@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/Info.scss";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
@@ -23,6 +23,52 @@ const Info = () => {
     setOpenLogin(true);
   };
 
+  var [name, setName] = useState("");
+  var [password, setPassword] = useState("");
+  var [email, setEmail] = useState("");
+
+  // var [nameLogIn, logInEmail] = useState("");
+  // var [passwordLogIn, logInPassword] = useState("");
+
+  // const logEmail = nameLogIn;
+  // const logPassword = passwordLogIn;
+
+  const newName = name;
+  const newEmail = email;
+  const newPassword = password;
+  //ToDo fixa submit form alla knappar aktiverar den
+  const registerData = {
+    name: newName,
+    password: newPassword,
+    email: newEmail,
+    admin: false,
+  };
+
+  // const loginData = {
+  //   name: logEmail,
+  //   password: logPassword,
+  // };
+
+  function handleSubmit() {
+    fetch("http://localhost:3001/users/register", {
+      method: "POST",
+      body: JSON.stringify(registerData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  // function handleLogInSubmit() {
+  //   fetch("http://localhost:3001/users/login", {
+  //     method: "POST",
+  //     body: JSON.stringify(loginData),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then(alert("You are logged in"));
+  // }
+
   return (
     <div>
       <div className="profile-btn-div">
@@ -37,12 +83,14 @@ const Info = () => {
 
         <Dialog open={openLogin} onClose={() => setOpenLogin(false)}>
           <DialogTitle>Login</DialogTitle>
+          {/* <form onSubmit={handleLogInSubmit}> */}
           <DialogContent>
             <TextField
               autoFocus
               margin="dense"
               id="name"
               label="Email"
+              // onChange={(event) => setEmail(event.target.value)}
               type="email"
               fullWidth
               variant="standard"
@@ -51,6 +99,7 @@ const Info = () => {
               margin="dense"
               id="password"
               label="Password"
+              // onChange={(event) => setPassword(event.target.value)}
               type="password"
               fullWidth
               variant="standard"
@@ -66,43 +115,62 @@ const Info = () => {
           </DialogContentText>
           <DialogActions>
             <Button onClick={() => setOpenLogin(false)}>Cancel</Button>
-            <Button onClick={() => setOpenLogin(false)}>Login</Button>
+            <Button type="submit">Login</Button>
           </DialogActions>
+          {/* </form> */}
         </Dialog>
 
         <Dialog open={openRegister} onClose={() => setOpenRegister(false)}>
           <DialogTitle>Register</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email"
-              type="email"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              margin="dense"
-              id="password"
-              label="Password"
-              type="password"
-              fullWidth
-              variant="standard"
-            />
-          </DialogContent>
-          <DialogContentText>
-            <button
-              className="dialogFormButtons"
-              onClick={closeRegisterOpenLogin}
-            >
-              I Already Have an Account
-            </button>
-          </DialogContentText>
-          <DialogActions>
-            <Button onClick={() => setOpenRegister(false)}>Cancel</Button>
-            <Button onClick={() => setOpenRegister(false)}>Register</Button>
-          </DialogActions>
+          <form onSubmit={handleSubmit}>
+            <DialogContent>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="Name"
+                onChange={(event) => setName(event.target.value)}
+                name="name"
+                type="text"
+                fullWidth
+                variant="standard"
+              />
+              <TextField
+                margin="dense"
+                id="email"
+                label="Email"
+                onChange={(event) => setEmail(event.target.value)}
+                type="email"
+                name="email"
+                fullWidth
+                variant="standard"
+              />
+              <TextField
+                margin="dense"
+                id="password"
+                label="Password"
+                onChange={(event) => setPassword(event.target.value)}
+                type="password"
+                name="password"
+                fullWidth
+                variant="standard"
+              />
+            </DialogContent>
+            <DialogContentText>
+              <button
+                className="dialogFormButtons"
+                onClick={closeRegisterOpenLogin}
+              >
+                I Already Have an Account
+              </button>
+            </DialogContentText>
+            <DialogActions>
+              <Button onClick={() => setOpenRegister(false)}>Cancel</Button>
+              <Button type="submit" onClick={() => setOpenRegister(false)}>
+                Register
+              </Button>
+            </DialogActions>
+          </form>
         </Dialog>
       </div>
 

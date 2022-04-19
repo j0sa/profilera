@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 });
 
 // EMAIL IS UNIQUE
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const user = {
       name: req.body.name,
