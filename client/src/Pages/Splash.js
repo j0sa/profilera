@@ -105,7 +105,7 @@ const Splash = () => {
         </Fade>
       </div>
 
-      <div class="meet-the-team-div">
+      <div id="meet-the-team-div" class="meet-the-team-div">
         <div class="meet-the-team-text-div">
           <Fade left>
             <h2>Meet our team!</h2>

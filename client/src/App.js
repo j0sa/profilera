@@ -12,8 +12,21 @@ import Splash from "./pages/Splash";
 import ErrorPage from "./pages/ErrorPage";
 import Analysis from "./pages/Analysis";
 import Terms from "./pages/Terms";
+import styled from "styled-components";
 
 function App() {
+  const StyledLink = styled(Link)`
+    color: #e7dfdd;
+    text-decoration: none;
+    box-shadow: inset 0 -1px 0 #a239ca;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02857em;
+  `;
+
   return (
     <Router>
       <Routes>
@@ -30,54 +43,55 @@ function App() {
         </span>
         <ul>
           <li>
-            <form>
-              <button
-                formaction="http://localhost:3000/splash/"
-                className="footer-button"
-              >
-                Manifesto
-              </button>
-            </form>
+            <StyledLink
+              to={{
+                pathname: "/splash",
+                state: { fromDashboard: true },
+              }}
+            >
+              Manifesto
+            </StyledLink>
           </li>
           <li>
-            <from>
-              <button
-                formaction="http://localhost:3000/splash/"
-                className="footer-button"
-              >
-                Team
-              </button>
-            </from>
+            <StyledLink
+              to={{
+                pathname: "/splash",
+                hash: "#meet-the-team-div",
+                state: { fromDashboard: true },
+              }}
+            >
+              Team
+            </StyledLink>
           </li>
           <li>
-            <form>
-              <button
-                formaction="http://localhost:3000/"
-                className="footer-button"
-              >
-                Info
-              </button>
-            </form>
+            <StyledLink
+              to={{
+                pathname: "/",
+                state: { fromDashboard: true },
+              }}
+            >
+              Info
+            </StyledLink>
           </li>
           <li>
-            <form>
-              <button
-                formaction="http://localhost:3000/privacy/"
-                className="footer-button"
-              >
-                Privacy
-              </button>
-            </form>
+            <StyledLink
+              to={{
+                pathname: "/privacy",
+                state: { fromDashboard: true },
+              }}
+            >
+              Privacy
+            </StyledLink>
           </li>
           <li>
-            <form>
-              <button
-                formaction="http://localhost:3000/terms/"
-                className="footer-button"
-              >
-                Terms
-              </button>
-            </form>
+            <StyledLink
+              to={{
+                pathname: "/terms",
+                state: { fromDashboard: true },
+              }}
+            >
+              Terms
+            </StyledLink>
           </li>
         </ul>
       </footer>
