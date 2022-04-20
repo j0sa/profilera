@@ -8,10 +8,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-require("dotenv").config({
-  path: "../.env",
-  debug: true,
-});
 
 const Info = () => {
   const [openLogin, setOpenLogin] = React.useState(false);
@@ -31,11 +27,11 @@ const Info = () => {
   var [password, setPassword] = useState("");
   var [email, setEmail] = useState("");
 
-  // var [nameLogIn, logInEmail] = useState("");
-  // var [passwordLogIn, logInPassword] = useState("");
+  var [nameLogIn, logInEmail] = useState("");
+  var [passwordLogIn, logInPassword] = useState("");
 
-  // const logEmail = nameLogIn;
-  // const logPassword = passwordLogIn;
+  const logEmail = nameLogIn;
+  const logPassword = passwordLogIn;
 
   const newName = name;
   const newEmail = email;
@@ -48,10 +44,10 @@ const Info = () => {
     admin: false,
   };
 
-  // const loginData = {
-  //   name: logEmail,
-  //   password: logPassword,
-  // };
+  const loginData = {
+    email: logEmail,
+    password: logPassword,
+  };
 
   async function handleSubmit() {
     await fetch("http://localhost:3001/users/register", {
@@ -63,15 +59,15 @@ const Info = () => {
     });
   }
 
-  // function handleLogInSubmit() {
-  //   fetch("http://localhost:3001/users/login", {
-  //     method: "POST",
-  //     body: JSON.stringify(loginData),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then(alert("You are logged in"));
-  // }
+  async function handleLogInSubmit() {
+    await fetch("http://localhost:3001/users/login", {
+      method: "POST",
+      body: JSON.stringify(loginData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
   return (
     <div>
@@ -87,41 +83,44 @@ const Info = () => {
 
         <Dialog open={openLogin} onClose={() => setOpenLogin(false)}>
           <DialogTitle>Login</DialogTitle>
-          {/* <form onSubmit={handleLogInSubmit}> */}
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email"
-              // onChange={(event) => setEmail(event.target.value)}
-              type="email"
-              fullWidth
-              variant="standard"
-            />
-            <TextField
-              margin="dense"
-              id="password"
-              label="Password"
-              // onChange={(event) => setPassword(event.target.value)}
-              type="password"
-              fullWidth
-              variant="standard"
-            />
-          </DialogContent>
-          <DialogContentText>
-            <button
-              className="dialogFormButtons"
-              onClick={closeLoginOpenRegister}
-            >
-              I Don't Have and Account
-            </button>
-          </DialogContentText>
-          <DialogActions>
-            <Button onClick={() => setOpenLogin(false)}>Cancel</Button>
-            <Button type="submit">Login</Button>
-          </DialogActions>
-          {/* </form> */}
+          <form onSubmit={handleLogInSubmit}>
+            <DialogContent>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="name"
+                label="Email"
+                onChange={(event) => logInEmail(event.target.value)}
+                type="email"
+                name="email"
+                fullWidth
+                variant="standard"
+              />
+              <TextField
+                margin="dense"
+                id="password"
+                label="Password"
+                onChange={(event) => logInPassword(event.target.value)}
+                type="password"
+                name="password"
+                fullWidth
+                variant="standard"
+              />
+            </DialogContent>
+            <DialogContentText>
+              <button
+                type="button"
+                className="dialogFormButtons"
+                onClick={closeLoginOpenRegister}
+              >
+                I Don't Have and Account
+              </button>
+            </DialogContentText>
+            <DialogActions>
+              <Button onClick={() => setOpenLogin(false)}>Cancel</Button>
+              <Button type="submit">Login</Button>
+            </DialogActions>
+          </form>
         </Dialog>
 
         <Dialog open={openRegister} onClose={() => setOpenRegister(false)}>
@@ -162,6 +161,7 @@ const Info = () => {
             </DialogContent>
             <DialogContentText>
               <button
+                type="button"
                 className="dialogFormButtons"
                 onClick={closeRegisterOpenLogin}
               >
