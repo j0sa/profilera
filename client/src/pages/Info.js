@@ -49,8 +49,8 @@ const Info = () => {
   //   password: logPassword,
   // };
 
-  function handleSubmit() {
-    fetch("http://localhost:3001/users/register", {
+  async function handleSubmit() {
+    await fetch("http://localhost:3001/users/register", {
       method: "POST",
       body: JSON.stringify(registerData),
       headers: {
