@@ -50,7 +50,7 @@ const Info = () => {
   // };
 
   async function handleSubmit() {
-    await fetch("http://localhost:3001/users/register", {
+    await fetch("http://HOST:PORT/users/register", {
       method: "POST",
       body: JSON.stringify(registerData),
       headers: {

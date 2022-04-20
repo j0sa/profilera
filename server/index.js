@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 //const bcrypt = require("bcrypt");
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 const databaseURI = process.env.DATABASE_URI;
 const userRouter = require("./routes/users");
 
