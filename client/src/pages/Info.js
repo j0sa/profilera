@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/Info.scss";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
@@ -36,6 +36,7 @@ const Info = () => {
   const newName = name;
   const newEmail = email;
   const newPassword = password;
+
   //ToDo fixa submit form alla knappar aktiverar den
   const registerData = {
     name: newName,
@@ -77,6 +78,13 @@ const Info = () => {
       }
     });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("CTA") == "true") {
+      setOpenRegister(true);
+      localStorage.setItem("CTA", "false");
+    }
+  }, []);
 
   return (
     <div>

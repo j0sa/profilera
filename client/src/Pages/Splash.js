@@ -8,7 +8,7 @@ import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 import CookieConsent, { Cookies } from "react-cookie-consent";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import kristijanPic from "../assets/images/kristijanpic.jpg";
 import jonasPic from "../assets/images/jonaspic.jpg";
 
@@ -47,6 +47,12 @@ const slideImages = [
 
 const Splash = () => {
   let navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("../", { replace: true });
+    localStorage.setItem("CTA", "true");
+  };
+
   return (
     <div className="splash-page">
       <VideoBg>
@@ -66,7 +72,12 @@ const Splash = () => {
 
       <div className="first-CTAbtn">
         <Fade left>
-          <Button variant="contained" color="secondary" size="large">
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={handleClick}
+          >
             Create an Account
           </Button>
         </Fade>
@@ -138,7 +149,12 @@ const Splash = () => {
             Register now and give yourself a higher understanding of how you can
             modify your marketing methods in the most optimal way.
           </h2>
-          <Button variant="contained" color="secondary" size="large">
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={handleClick}
+          >
             Register Now
           </Button>
         </Fade>
