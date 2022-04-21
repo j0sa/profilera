@@ -59,15 +59,24 @@ const Info = () => {
     });
   }
 
-  async function handleLogInSubmit() {
-    await fetch("http://localhost:3001/users/login", {
+  const handleLogInSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3001/users/login", {
       method: "POST",
       body: JSON.stringify(loginData),
       headers: {
         "Content-Type": "application/json",
       },
+    }).then((response) => {
+      if (response.ok) {
+        alert("you are logged in");
+        console.log(response);
+      } else {
+        alert("wrong password or email");
+        console.log(response);
+      }
     });
-  }
+  };
 
   return (
     <div>
