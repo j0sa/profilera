@@ -75,27 +75,49 @@ router
   })
   .put(async (req, res, next) => {
     console.log(req.params.id);
-    userModel.updateOne(
-      {
-        _id: req.params.id,
-      },
-      {
-        name: req.body.name,
-        email: req.body.email,
-        //TODO fixa uppdatering av password med bcrypt
-        // password: await bcrypt.hash(req.body.password, 10),
-        admin: req.body.admin,
-      },
-      function (err) {
-        if (!err) {
-          res
-            .status(200)
-            .json({ success: true, message: "User was successfully updated!" });
-        } else {
-          res.status(401).json({ success: false, message: err });
+
+    if (req.body.password) {
+      userModel.updateOne(
+        {
+          _id: req.params.id,
+        },
+        {
+          //TODO fixa uppdatering av password med bcrypt
+          password: await bcrypt.hash(req.body.password, 10),
+        },
+        function (err) {
+          if (!err) {
+            res.status(200).json({
+              success: true,
+              message: "User was successfully updated!",
+            });
+          } else {
+            res.status(401).json({ success: false, message: err });
+          }
         }
-      }
-    );
+      );
+    } else {
+      userModel.updateOne(
+        {
+          _id: req.params.id,
+        },
+        {
+          name: req.body.name,
+          email: req.body.email,
+          admin: req.body.admin,
+        },
+        function (err) {
+          if (!err) {
+            res.status(200).json({
+              success: true,
+              message: "User was successfully updated!",
+            });
+          } else {
+            res.status(401).json({ success: false, message: err });
+          }
+        }
+      );
+    }
   })
   .delete((req, res, next) => {
     userModel
