@@ -73,16 +73,16 @@ router
         });
       });
   })
-  .put((req, res, next) => {
+  .put(async (req, res, next) => {
     console.log(req.params.id);
-    userModel.replaceOne(
+    userModel.updateOne(
       {
         _id: req.params.id,
       },
       {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: await bcrypt.hash(req.body.password, 10),
         admin: req.body.admin,
       },
       function (err) {

@@ -39,6 +39,9 @@ const Info = () => {
     setOpenSnackbarError(true);
   };
 
+  const [openProfile, setOpenProfile] = React.useState(false);
+  const [openPassword, setOpenPasswordDialog] = React.useState(false);
+
   const closeLoginOpenRegister = () => {
     setOpenLogin(false);
     setOpenRegister(true);
@@ -47,6 +50,15 @@ const Info = () => {
   const closeRegisterOpenLogin = () => {
     setOpenRegister(false);
     setOpenLogin(true);
+  };
+
+  const openPasswordDialogCloseProfile = () => {
+    setOpenPasswordDialog(true);
+    setOpenProfile(false);
+  };
+
+  const openProfileDialog = () => {
+    setOpenProfile(true);
   };
 
   var [name, setName] = useState("");
@@ -157,7 +169,7 @@ const Info = () => {
                 className="dialogFormButtons"
                 onClick={closeLoginOpenRegister}
               >
-                I Don't Have and Account
+                I Don't Have an Account
               </button>
             </DialogContentText>
             <DialogActions>
@@ -249,6 +261,77 @@ const Info = () => {
           </Alert>
         </Snackbar>
       </div>
+
+      <Dialog open={openProfile} onClose={() => setOpenProfile(false)}>
+        <DialogTitle>Login</DialogTitle>
+        <form>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Name"
+              type="name"
+              name="name"
+              fullWidth
+              variant="standard"
+            />
+
+            <TextField
+              margin="dense"
+              id="email"
+              label="Email"
+              type="email"
+              name="email"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogContentText>
+            <button
+              type="button"
+              className="dialogFormButtons"
+              onClick={openPasswordDialogCloseProfile}
+            >
+              Change pasword
+            </button>
+          </DialogContentText>
+          <DialogActions>
+            <Button onClick={() => setOpenProfile(false)}>Cancel</Button>
+            <Button type="submit">Uppdate</Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+
+      <Dialog open={openPassword} onClose={() => setOpenPasswordDialog(false)}>
+        <DialogTitle>Login</DialogTitle>
+        <form>
+          <DialogContent>
+            <TextField
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              name="password"
+              fullWidth
+              variant="standard"
+            ></TextField>
+            <TextField
+              margin="dense"
+              id="newPassword"
+              label="New Password"
+              type="password"
+              name="newPassword"
+              fullWidth
+              variant="standard"
+            ></TextField>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setOpenPasswordDialog(false)}>Cancel</Button>
+            <Button type="submit">Change</Button>
+          </DialogActions>
+        </form>
+      </Dialog>
 
       <div className="info-txt-customer-segmentation-div">
         <Fade left>
