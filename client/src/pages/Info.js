@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./css/Info.scss";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
 import TextField from "@mui/material/TextField";
+import MuiAlert from "@mui/material/Alert";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -12,6 +14,30 @@ import DialogTitle from "@mui/material/DialogTitle";
 const Info = () => {
   const [openLogin, setOpenLogin] = React.useState(false);
   const [openRegister, setOpenRegister] = React.useState(false);
+  const [openSnackbarSuccess, setOpenSnackbarSuccess] = React.useState(false);
+  const [openSnackbarError, setOpenSnackbarError] = React.useState(false);
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const handleToCloseSnackbarSuccess = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarSuccess(false);
+  };
+
+  const handleClickEventSnackbarSuccess = () => {
+    setOpenSnackbarSuccess(true);
+  };
+
+  const handleToCloseSnackbarerror = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarError(false);
+  };
+
+  const handleClickEventSnackbarError = () => {
+    setOpenSnackbarError(true);
+  };
 
   const closeLoginOpenRegister = () => {
     setOpenLogin(false);
@@ -70,17 +96,18 @@ const Info = () => {
       },
     }).then((response) => {
       if (response.ok) {
-        alert("you are logged in");
+        handleClickEventSnackbarSuccess();
+        setOpenLogin(false);
         console.log(response);
       } else {
-        alert("wrong password or email");
+        handleClickEventSnackbarError();
         console.log(response);
       }
     });
   };
 
   useEffect(() => {
-    if (localStorage.getItem("CTA") == "true") {
+    if (localStorage.getItem("CTA") === "true") {
       setOpenRegister(true);
       localStorage.setItem("CTA", "false");
     }
@@ -193,6 +220,34 @@ const Info = () => {
             </DialogActions>
           </form>
         </Dialog>
+
+        <Snackbar
+          open={openSnackbarSuccess}
+          autoHideDuration={7000}
+          onClose={handleToCloseSnackbarSuccess}
+        >
+          <Alert
+            onClose={handleToCloseSnackbarSuccess}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Congratulations! You are now logged in.
+          </Alert>
+        </Snackbar>
+
+        <Snackbar
+          open={openSnackbarError}
+          autoHideDuration={7000}
+          onClose={handleToCloseSnackbarerror}
+        >
+          <Alert
+            onClose={handleToCloseSnackbarerror}
+            severity="error"
+            sx={{ width: "100%" }}
+          >
+            Uh oh! Seems there was an error. Try again!
+          </Alert>
+        </Snackbar>
       </div>
 
       <div className="info-txt-customer-segmentation-div">

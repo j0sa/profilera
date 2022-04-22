@@ -46,7 +46,7 @@ router.post("/login", (req, res) => {
       if (data) {
         return res
           .status(200)
-          .json({ success: true, message: "Login success." });
+          .json({ success: true, message: "Login success.", token: data._id });
       } else {
         return res
           .status(401)
