@@ -82,7 +82,8 @@ router
       {
         name: req.body.name,
         email: req.body.email,
-        password: await bcrypt.hash(req.body.password, 10),
+        //TODO fixa uppdatering av password med bcrypt
+        // password: await bcrypt.hash(req.body.password, 10),
         admin: req.body.admin,
       },
       function (err) {
