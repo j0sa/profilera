@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/Splash.scss";
 import VideoBg from "reactjs-videobg";
-import mp4 from "../assets/videos/backgroundAnimation.mp4";
+import mp4 from "../assets/videos/looped_video.mp4";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import Fade from "react-reveal/Fade";
