@@ -68,6 +68,12 @@ const Info = () => {
   var [nameLogIn, logInEmail] = useState("");
   var [passwordLogIn, logInPassword] = useState("");
 
+  var [emailChange, changeEmail] = React.useState("");
+  var [nameChange, changeName] = React.useState("");
+
+  const chngEmail = emailChange;
+  const chngName = nameChange;
+
   const logEmail = nameLogIn;
   const logPassword = passwordLogIn;
 
@@ -75,17 +81,43 @@ const Info = () => {
   const newEmail = email;
   const newPassword = password;
 
-  //ToDo fixa submit form alla knappar aktiverar den
+  const changeData = {
+    name: chngName,
+    email: chngEmail,
+  };
+
   const registerData = {
     name: newName,
     password: newPassword,
     email: newEmail,
     admin: false,
   };
+  //TODO get the id of the person that is logged in
+  const userId = "625fbcd9c8766271358c5d42";
 
   const loginData = {
     email: logEmail,
     password: logPassword,
+  };
+
+  const handleUserInfoChangeSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3001/users/" + userId, {
+      method: "PUT",
+      body: JSON.stringify(changeData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        handleClickEventSnackbarSuccess();
+        setOpenLogin(false);
+        console.log(response);
+      } else {
+        handleClickEventSnackbarError();
+        console.log(response);
+      }
+    });
   };
 
   async function handleSubmit() {
@@ -132,6 +164,7 @@ const Info = () => {
           variant="contained"
           color="secondary"
           size="large"
+          // add conditional statement to open profile info if logged in
           onClick={() => setOpenLogin(true)}
         >
           Profile
@@ -263,24 +296,28 @@ const Info = () => {
       </div>
 
       <Dialog open={openProfile} onClose={() => setOpenProfile(false)}>
-        <DialogTitle>Login</DialogTitle>
-        <form>
+        <DialogTitle>Change Info</DialogTitle>
+        <form onSubmit={handleUserInfoChangeSubmit}>
           <DialogContent>
             <TextField
               autoFocus
               margin="dense"
               id="name"
               label="Name"
+              onChange={(event) => changeName(event.target.value)}
               type="name"
               name="name"
               fullWidth
               variant="standard"
             />
+            {/* TODO add autofill för email and name to the forms
+             */}
 
             <TextField
               margin="dense"
               id="email"
               label="Email"
+              onChange={(event) => changeEmail(event.target.value)}
               type="email"
               name="email"
               fullWidth
