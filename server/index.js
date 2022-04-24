@@ -20,7 +20,7 @@ mongoose.connect(databaseURI);
 
 app.use("/users", userRouter);
 
-app.listen(port, () => {
+app.listen(port || 5000, () => {
   console.log("[Server]::LISTEN:%s", port);
 });
 

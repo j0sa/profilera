@@ -22,7 +22,7 @@
   left: 3%;
 }
 
-.atnGrab-lastWord {
+.purple-text {
   font-weight: bolder;
   color: #a239ca;
 }
@@ -39,7 +39,7 @@
   text-shadow: 0 0 1px transparent;
 }
 
-.ai-assisted {
+.yellow-text {
   font-weight: bolder;
   color: #feb728;
 }
@@ -71,9 +71,10 @@
 
 .CTA-div {
   margin: auto;
+  font-size: 3.7vw;
   padding-bottom: 2em;
   padding-top: 60%;
-  width: 35%;
+  width: 95%;
   color: #e7dfdd;
   text-align: center;
   z-index: 1;
@@ -83,7 +84,7 @@
   margin: auto;
   text-align: center;
   display: inline-block;
-  padding-left: 18%;
+  padding-left: 8%;
   width: 20vw;
   z-index: 1;
 }
@@ -94,13 +95,21 @@
   padding-top: 30%;
   padding-left: 2%;
   display: inline-block;
-  width: 20%;
+  width: 30%;
   z-index: 1;
 }
 
 .meet-the-team-div {
   width: 100%;
   z-index: 1;
+}
+
+.meet-the-team-text-div h2 {
+  font-size: 3.7vw;
+}
+
+.meet-the-team-text-div h3 {
+  font-size: 3vw;
 }
 
 .each-slide {
@@ -120,18 +129,18 @@
 
 .each-slide h2 {
   color: #e7dfdd;
-  font-size: x-large;
+  font-size: 2vw;
   text-shadow: 0 0 1px transparent;
 }
 
 .info-text-p {
   color: #e7dfdd;
-  font-size: x-large;
+  font-size: 2vw;
   text-shadow: 0 0 1px transparent;
 }
 
 .cookie-consent-privacy {
-  color: #E7DFDD;
+  color: #e7dfdd;
   text-decoration: underline;
   border: none;
   background-repeat: no-repeat;
@@ -147,7 +156,7 @@
 }
 
 .cookie-consent-text {
-  color: #E7DFDD;
+  color: #e7dfdd;
   font-weight: 500;
   font-size: 0.9375rem;
   letter-spacing: 0.02857em;

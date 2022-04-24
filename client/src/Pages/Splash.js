@@ -64,7 +64,7 @@ const Splash = () => {
           <h1>
             <b>
               Patterns that elevate your business{" "}
-              <span className="atnGrab-lastWord">success.</span>
+              <span className="purple-text">success.</span>
             </b>
           </h1>
         </Fade>
@@ -87,7 +87,7 @@ const Splash = () => {
         <Fade left>
           <h2>
             Make use of Profilera's sophisticated{" "}
-            <span className="ai-assisted">AI-assisted</span> pattern-revealing
+            <span className="yellow-text">AI-assisted</span> pattern-revealing
             service and gain new knowledge and insights about your customer
             base.
           </h2>
@@ -119,9 +119,13 @@ const Splash = () => {
       <div id="meet-the-team-div" class="meet-the-team-div">
         <div class="meet-the-team-text-div">
           <Fade left>
-            <h2>Meet our team!</h2>
+            <h2>
+              <span className="purple-text">Meet our team!</span>
+            </h2>
             <h3>
-              We are a small but dedicated and commited team of developers.
+              We are a small but <span className="yellow-text">dedicated</span>{" "}
+              and <span className="yellow-text">committed</span> team of
+              developers.
             </h3>
           </Fade>
         </div>
@@ -146,8 +150,10 @@ const Splash = () => {
       <div class="CTA-div">
         <Fade up>
           <h2>
-            Register now and give yourself a higher understanding of how you can
-            modify your marketing methods in the most optimal way.
+            Register now and give yourself a higher{" "}
+            <span className="purple-text">understanding</span> of how you can
+            modify your marketing methods in the most{" "}
+            <span className="yellow-text">optimal</span> way.
           </h2>
           <Button
             variant="contained"
