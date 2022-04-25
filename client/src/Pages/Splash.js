@@ -11,6 +11,7 @@ import CookieConsent, { Cookies } from "react-cookie-consent";
 import { useNavigate, useLocation } from "react-router-dom";
 import kristijanPic from "../assets/images/kristijanpic.jpg";
 import jonasPic from "../assets/images/jonaspic.jpg";
+import { color } from "@mui/system";
 
 const theme = createTheme({
   status: {
@@ -45,6 +46,35 @@ const slideImages = [
   },
 ];
 
+const slideProps = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  pauseOnHover: true,
+  prevArrow: (
+    <div style={{ width: "35px", marginRight: "-35px", cursor: "pointer" }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        fill="#a239ca"
+      >
+        <path d="M242 180.6v-138L0 256l242 213.4V331.2h270V180.6z" />
+      </svg>
+    </div>
+  ),
+  nextArrow: (
+    <div style={{ width: "35px", marginLeft: "-35px", cursor: "pointer" }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        fill="#a239ca"
+      >
+        <path d="M512 256L270 42.6v138.2H0v150.6h270v138z" />
+      </svg>
+    </div>
+  ),
+};
+
 const Splash = () => {
   let navigate = useNavigate();
 
@@ -64,7 +94,9 @@ const Splash = () => {
           <h1>
             <b>
               Patterns that elevate your business{" "}
-              <span className="purple-text">success.</span>
+              <span className="purple-text">
+                <u>success.</u>
+              </span>
             </b>
           </h1>
         </Fade>
@@ -119,10 +151,12 @@ const Splash = () => {
       <div id="meet-the-team-div" class="meet-the-team-div">
         <div class="meet-the-team-text-div">
           <Fade left>
-            <h2>
-              <span className="purple-text">Meet our team!</span>
+            <h2 class="meet-the-team-text-div-left">
+              <span className="purple-text">
+                <u>Meet our team!</u>
+              </span>
             </h2>
-            <h3>
+            <h3 class="meet-the-team-text-div-right">
               We are a small but <span className="yellow-text">dedicated</span>{" "}
               and <span className="yellow-text">committed</span> team of
               developers.
@@ -132,7 +166,7 @@ const Splash = () => {
 
         <div className="meet-the-team-slide-div">
           <Fade up>
-            <Slide>
+            <Slide {...slideProps}>
               {slideImages.map((slideImage, index) => (
                 <div className="each-slide" key={index}>
                   <h2>{slideImage.caption}</h2>
@@ -151,8 +185,10 @@ const Splash = () => {
         <Fade up>
           <h2>
             Register now and give yourself a higher{" "}
-            <span className="purple-text">understanding</span> of how you can
-            modify your marketing methods in the most{" "}
+            <span className="purple-text">
+              <u>understanding</u>
+            </span>{" "}
+            of how you can modify your marketing methods in the most{" "}
             <span className="yellow-text">optimal</span> way.
           </h2>
           <Button
