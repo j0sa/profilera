@@ -71,6 +71,10 @@ const Info = () => {
   var [emailChange, changeEmail] = React.useState("");
   var [nameChange, changeName] = React.useState("");
 
+  var [passwordChange, changePassword] = React.useState("");
+
+  const chngPassword = passwordChange;
+
   const chngEmail = emailChange;
   const chngName = nameChange;
 
@@ -80,6 +84,10 @@ const Info = () => {
   const newName = name;
   const newEmail = email;
   const newPassword = password;
+
+  const passwordData = {
+    password: chngPassword,
+  };
 
   const changeData = {
     name: chngName,
@@ -93,11 +101,31 @@ const Info = () => {
     admin: false,
   };
   //TODO get the id of the person that is logged in
-  const userId = "625fbcd9c8766271358c5d42";
+  const userId = "62664c9d67dacbee6fc21e89";
 
   const loginData = {
     email: logEmail,
     password: logPassword,
+  };
+
+  const handlePasswordChangeSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3001/users/" + userId, {
+      method: "PUT",
+      body: JSON.stringify(passwordData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        handleClickEventSnackbarSuccess();
+        setOpenLogin(false);
+        console.log(response);
+      } else {
+        handleClickEventSnackbarError();
+        console.log(response);
+      }
+    });
   };
 
   const handleUserInfoChangeSubmit = (e) => {
@@ -164,7 +192,7 @@ const Info = () => {
           variant="contained"
           color="secondary"
           size="large"
-          // add conditional statement to open profile info if logged in
+          // TODO add conditional statement to open profile info if logged in
           onClick={() => setOpenLogin(true)}
         >
           Profile
@@ -181,6 +209,7 @@ const Info = () => {
                 label="Email"
                 onChange={(event) => logInEmail(event.target.value)}
                 type="email"
+                required="true"
                 name="email"
                 fullWidth
                 variant="standard"
@@ -191,6 +220,7 @@ const Info = () => {
                 label="Password"
                 onChange={(event) => logInPassword(event.target.value)}
                 type="password"
+                required="true"
                 name="password"
                 fullWidth
                 variant="standard"
@@ -220,6 +250,7 @@ const Info = () => {
                 autoFocus
                 margin="dense"
                 id="name"
+                required="true"
                 label="Name"
                 onChange={(event) => setName(event.target.value)}
                 name="name"
@@ -230,6 +261,7 @@ const Info = () => {
               <TextField
                 margin="dense"
                 id="email"
+                required="true"
                 label="Email"
                 onChange={(event) => setEmail(event.target.value)}
                 type="email"
@@ -240,6 +272,7 @@ const Info = () => {
               <TextField
                 margin="dense"
                 id="password"
+                required="true"
                 label="Password"
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"
@@ -303,6 +336,7 @@ const Info = () => {
               autoFocus
               margin="dense"
               id="name"
+              required="true"
               label="Name"
               onChange={(event) => changeName(event.target.value)}
               type="name"
@@ -310,13 +344,12 @@ const Info = () => {
               fullWidth
               variant="standard"
             />
-            {/* TODO add autofill för email and name to the forms
-             */}
 
             <TextField
               margin="dense"
               id="email"
               label="Email"
+              required="true"
               onChange={(event) => changeEmail(event.target.value)}
               type="email"
               name="email"
@@ -342,23 +375,16 @@ const Info = () => {
 
       <Dialog open={openPassword} onClose={() => setOpenPasswordDialog(false)}>
         <DialogTitle>Login</DialogTitle>
-        <form>
+        <form onSubmit={handlePasswordChangeSubmit}>
           <DialogContent>
-            <TextField
-              margin="dense"
-              id="password"
-              label="Password"
-              type="password"
-              name="password"
-              fullWidth
-              variant="standard"
-            ></TextField>
             <TextField
               margin="dense"
               id="newPassword"
               label="New Password"
+              onChange={(event) => changePassword(event.target.value)}
               type="password"
               name="newPassword"
+              required="true"
               fullWidth
               variant="standard"
             ></TextField>
