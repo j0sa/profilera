@@ -209,7 +209,7 @@ const Info = () => {
                 label="Email"
                 onChange={(event) => logInEmail(event.target.value)}
                 type="email"
-                required="true"
+                required={true}
                 name="email"
                 fullWidth
                 variant="standard"
@@ -220,7 +220,7 @@ const Info = () => {
                 label="Password"
                 onChange={(event) => logInPassword(event.target.value)}
                 type="password"
-                required="true"
+                required={true}
                 name="password"
                 fullWidth
                 variant="standard"
@@ -250,7 +250,7 @@ const Info = () => {
                 autoFocus
                 margin="dense"
                 id="name"
-                required="true"
+                required={true}
                 label="Name"
                 onChange={(event) => setName(event.target.value)}
                 name="name"
@@ -261,7 +261,7 @@ const Info = () => {
               <TextField
                 margin="dense"
                 id="email"
-                required="true"
+                required={true}
                 label="Email"
                 onChange={(event) => setEmail(event.target.value)}
                 type="email"
@@ -272,7 +272,7 @@ const Info = () => {
               <TextField
                 margin="dense"
                 id="password"
-                required="true"
+                required={true}
                 label="Password"
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"
@@ -336,7 +336,7 @@ const Info = () => {
               autoFocus
               margin="dense"
               id="name"
-              required="true"
+              required={true}
               label="Name"
               onChange={(event) => changeName(event.target.value)}
               type="name"
@@ -349,7 +349,7 @@ const Info = () => {
               margin="dense"
               id="email"
               label="Email"
-              required="true"
+              required={true}
               onChange={(event) => changeEmail(event.target.value)}
               type="email"
               name="email"
@@ -384,7 +384,7 @@ const Info = () => {
               onChange={(event) => changePassword(event.target.value)}
               type="password"
               name="newPassword"
-              required="true"
+              required={true}
               fullWidth
               variant="standard"
             ></TextField>
