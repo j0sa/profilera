@@ -3,6 +3,12 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const userModel = require("../models/User");
 
+router.post("/userid", (req, res) => {
+  userModel.findOne({ email: req.body.email }).then((user) => {
+    res.json(user);
+  });
+});
+
 router.get("/", (req, res) => {
   userModel.find({}, (err, result) => {
     if (err) {
@@ -46,7 +52,7 @@ router.post("/login", (req, res) => {
       if (data) {
         return res
           .status(200)
-          .json({ success: true, message: "Login success.", token: data._id });
+          .json({ success: true, message: "Login success." });
       } else {
         return res
           .status(401)
@@ -82,7 +88,6 @@ router
           _id: req.params.id,
         },
         {
-          //TODO fixa uppdatering av password med bcrypt
           password: await bcrypt.hash(req.body.password, 10),
         },
         function (err) {

@@ -10,6 +10,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Cookies from "universal-cookie";
 
 const Info = () => {
   const [openLogin, setOpenLogin] = React.useState(false);
@@ -101,12 +102,36 @@ const Info = () => {
     admin: false,
   };
   //TODO get the id of the person that is logged in
-  const userId = "62664c9d67dacbee6fc21e89";
+  const userId = "6268f30cb3ad2a970db718a7";
 
   const loginData = {
     email: logEmail,
     password: logPassword,
   };
+
+  async function getUserInfoByEmail(userEmail) {
+    const emailToSearch = {
+      email: userEmail,
+    };
+    return new Promise((resolve, reject) => {
+      fetch("http://localhost:3001/users/userid", {
+        method: "POST",
+        body: JSON.stringify(emailToSearch),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => resolve(data))
+        .catch((err) => reject(err));
+    });
+  }
+
+  async function getData(uEmail) {
+    const data = await getUserInfoByEmail(uEmail);
+    // console.log(data);
+    return data.JSON;
+  }
 
   const handlePasswordChangeSubmit = (e) => {
     e.preventDefault();
@@ -158,6 +183,8 @@ const Info = () => {
     });
   }
 
+  const cookies = new Cookies();
+
   const handleLogInSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3001/users/login", {
@@ -168,7 +195,11 @@ const Info = () => {
       },
     }).then((response) => {
       if (response.ok) {
+        cookies.set("user", getData(loginData.email), {
+          path: "/",
+        });
         handleClickEventSnackbarSuccess();
+        console.log(cookies.get("user"));
         setOpenLogin(false);
         console.log(response);
       } else {
@@ -232,7 +263,7 @@ const Info = () => {
                 className="dialogFormButtons"
                 onClick={closeLoginOpenRegister}
               >
-                I Don't Have an Account
+                &nbsp; &nbsp;&nbsp; I Don't Have an Account
               </button>
             </DialogContentText>
             <DialogActions>
@@ -287,7 +318,7 @@ const Info = () => {
                 className="dialogFormButtons"
                 onClick={closeRegisterOpenLogin}
               >
-                I Already Have an Account
+                &nbsp; &nbsp;&nbsp; I Already Have an Account
               </button>
             </DialogContentText>
             <DialogActions>
@@ -363,7 +394,7 @@ const Info = () => {
               className="dialogFormButtons"
               onClick={openPasswordDialogCloseProfile}
             >
-              Change pasword
+              &nbsp; &nbsp;&nbsp; Change pasword
             </button>
           </DialogContentText>
           <DialogActions>
