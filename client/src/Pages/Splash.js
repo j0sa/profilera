@@ -126,15 +126,27 @@ const Splash = () => {
         </Fade>
       </div>
 
+      <div class="use-case-text-div-start">
+        <Fade left>
+          <h2>
+            Consider how many sales and business opportunities you are{" "}
+            <span className="yellow-text">missing</span>
+            out on by not <span className="purple-text">optimizing</span> your
+            marketing methods.
+          </h2>
+        </Fade>
+      </div>
+
       <div class="use-case-text-div">
         <Fade right>
           <h2>
-            Consider how many sales and business opportunities you are missing
-            out on by not optimizing your marketing methods. We here at
-            profilera strive towards highlighting and presenting you with the
-            most valuable information about your customer base so that you
-            aren’t exposed to the risk of missing out on that big sale ever
-            again.
+            We here at profilera strive towards highlighting and presenting you
+            with the most <span className="purple-text">valuable</span>{" "}
+            information about your customer base so that you aren’t exposed to
+            the{" "}
+            <span className="yellow-text">
+              risk of missing out on that big sale ever again.
+            </span>
           </h2>
         </Fade>
       </div>
@@ -142,8 +154,10 @@ const Splash = () => {
       <div class="use-case-text-how-div">
         <Fade left>
           <h2>
-            How do we accomplish this? By offering a service that assists you in
-            finding useful patterns within your customer base.
+            <span className="purple-text">How do we accomplish this?</span>
+            <br></br>By offering a service that assists you in finding useful
+            patterns{" "}
+            <span className="yellow-text">within your customer base.</span>
           </h2>
         </Fade>
       </div>

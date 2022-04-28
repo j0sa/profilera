@@ -51,21 +51,31 @@
   bottom: 15%;
 }
 
+.use-case-text-div-start {
+  font-size: 2.5vw;
+  padding-top: 60%;
+  color: #e7dfdd;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
 .use-case-text-div {
   position: absolute;
-  right: 1em;
-  padding-top: 70%;
+  font-size: 2.5vw;
+  padding-top: 10%;
   color: #e7dfdd;
-  width: 45%;
+  width: 100%;
   text-align: center;
   z-index: 1;
 }
 
 .use-case-text-how-div {
-  padding-top: 100%;
+  font-size: 2.5vw;
+  padding-top: 40%;
   color: #e7dfdd;
-  width: 45%;
-  text-align: left;
+  width: 100%;
+  text-align: center;
   z-index: 1;
 }
 
@@ -73,7 +83,7 @@
   margin: auto;
   font-size: 3.7vw;
   padding-bottom: 2em;
-  padding-top: 60%;
+  padding-top: 10%;
   width: 95%;
   color: #e7dfdd;
   text-align: center;
@@ -92,7 +102,7 @@
 .meet-the-team-text-div {
   text-align: left;
   color: #e7dfdd;
-  padding-top: 30%;
+  padding-top: 10%;
   padding-left: 2%;
   display: inline-block;
   width: 35%;
