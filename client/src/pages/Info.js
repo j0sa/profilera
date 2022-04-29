@@ -11,6 +11,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Cookies from "universal-cookie";
+import { alertTitleClasses } from "@mui/material";
 
 const Info = () => {
   const [openLogin, setOpenLogin] = React.useState(false);
@@ -101,41 +102,55 @@ const Info = () => {
     email: newEmail,
     admin: false,
   };
-  //TODO get the id of the person that is logged in
-  const userId = "6268f30cb3ad2a970db718a7";
 
   const loginData = {
     email: logEmail,
     password: logPassword,
   };
 
-  async function getUserInfoByEmail(userEmail) {
+  function getUserInfoByEmail(userEmail) {
     const emailToSearch = {
       email: userEmail,
     };
-    return new Promise((resolve, reject) => {
-      fetch("http://localhost:3001/users/userid", {
-        method: "POST",
-        body: JSON.stringify(emailToSearch),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => resolve(data))
-        .catch((err) => reject(err));
+    return fetch("http://localhost:3001/users/userid", {
+      method: "POST",
+      body: JSON.stringify(emailToSearch),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-  }
 
-  async function getData(uEmail) {
-    const data = await getUserInfoByEmail(uEmail);
-    // console.log(data);
-    return data.JSON;
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   try {
+    //     // let objectArray = Object.entries(data)
+    //     //   .map((x) => x.join(":"))
+    //     //   .join("\n");
+    //     // alert(`x: \n{\n${objectArray}\n}`);
+    //     // console.log(objectArray.toString());
+    //     // return objectArray.toString();
+
+    //     // let objectStr = "";
+    //     // for (const [x, value] of Object.entries(data)) {
+    //     //   objectStr += `${x}:${value}\n`;
+    //     // }
+    //     // alert("x: " + "{" + objectStr + "}");
+    //     // return objectStr;
+
+    //     let objectStr = "";
+    //     for (let key of Object.keys(data)) {
+    //       objectStr += `${key}:${data[key]}\n`;
+    //     }
+    //     alert(objectStr);
+    //   } catch (error) {
+    //     console.log("error", error.message);
+    //   }
+    // });
   }
 
   const handlePasswordChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + userId, {
+    fetch("http://localhost:3001/users/" + cookies.get("user"), {
       method: "PUT",
       body: JSON.stringify(passwordData),
       headers: {
@@ -155,7 +170,7 @@ const Info = () => {
 
   const handleUserInfoChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + userId, {
+    fetch("http://localhost:3001/users/" + cookies.get("user"), {
       method: "PUT",
       body: JSON.stringify(changeData),
       headers: {
@@ -195,15 +210,31 @@ const Info = () => {
       },
     }).then((response) => {
       if (response.ok) {
-        cookies.set("user", getData(loginData.email), {
+        const dataUU = getUserInfoByEmail(loginData.email)
+          .then((response) => response.json())
+          .then((data) => {
+            let objectStr = "";
+            for (let key of Object.keys(data)) {
+              objectStr += `${key}:${data[key]}\n`;
+            }
+
+            cookies.set("user", objectStr.substring(4, 28), {
+              path: "/",
+            });
+            alert(objectStr.substring(4, 28));
+          });
+        handleClickEventSnackbarSuccess();
+        cookies.set("userLoggedIn", true, {
           path: "/",
         });
-        handleClickEventSnackbarSuccess();
         console.log(cookies.get("user"));
         setOpenLogin(false);
         console.log(response);
       } else {
         handleClickEventSnackbarError();
+        cookies.set("userLoggedIn", false, {
+          path: "/",
+        });
         console.log(response);
       }
     });
@@ -224,7 +255,13 @@ const Info = () => {
           color="secondary"
           size="large"
           // TODO add conditional statement to open profile info if logged in
-          onClick={() => setOpenLogin(true)}
+          onClick={() => {
+            if (cookies.get("userLoggedIn") === "true") {
+              openProfileDialog(true);
+            } else {
+              setOpenLogin(true);
+            }
+          }}
         >
           Profile
         </Button>
