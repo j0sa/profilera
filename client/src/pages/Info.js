@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/Info.scss";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
+import Fab from "@mui/material/Fab";
 import Snackbar from "@mui/material/Snackbar";
 import TextField from "@mui/material/TextField";
 import MuiAlert from "@mui/material/Alert";
@@ -10,79 +11,37 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { createTheme } from "@mui/material/styles";
 import Cookies from "universal-cookie";
-import { alertTitleClasses } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 
 const Info = () => {
+  // Use States
   const [openLogin, setOpenLogin] = React.useState(false);
   const [openRegister, setOpenRegister] = React.useState(false);
   const [openSnackbarSuccess, setOpenSnackbarSuccess] = React.useState(false);
   const [openSnackbarError, setOpenSnackbarError] = React.useState(false);
-
-  const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
-
-  const handleToCloseSnackbarSuccess = (event, reason) => {
-    if ("clickaway" === reason) return;
-    setOpenSnackbarSuccess(false);
-  };
-
-  const handleClickEventSnackbarSuccess = () => {
-    setOpenSnackbarSuccess(true);
-  };
-
-  const handleToCloseSnackbarerror = (event, reason) => {
-    if ("clickaway" === reason) return;
-    setOpenSnackbarError(false);
-  };
-
-  const handleClickEventSnackbarError = () => {
-    setOpenSnackbarError(true);
-  };
-
   const [openProfile, setOpenProfile] = React.useState(false);
   const [openPassword, setOpenPasswordDialog] = React.useState(false);
+  let [name, setName] = useState("");
+  let [password, setPassword] = useState("");
+  let [email, setEmail] = useState("");
+  let [nameLogIn, logInEmail] = useState("");
+  let [passwordLogIn, logInPassword] = useState("");
+  let [emailChange, changeEmail] = React.useState("");
+  let [nameChange, changeName] = React.useState("");
+  let [passwordChange, changePassword] = React.useState("");
 
-  const closeLoginOpenRegister = () => {
-    setOpenLogin(false);
-    setOpenRegister(true);
-  };
-
-  const closeRegisterOpenLogin = () => {
-    setOpenRegister(false);
-    setOpenLogin(true);
-  };
-
-  const openPasswordDialogCloseProfile = () => {
-    setOpenPasswordDialog(true);
-    setOpenProfile(false);
-  };
-
-  const openProfileDialog = () => {
-    setOpenProfile(true);
-  };
-
-  var [name, setName] = useState("");
-  var [password, setPassword] = useState("");
-  var [email, setEmail] = useState("");
-
-  var [nameLogIn, logInEmail] = useState("");
-  var [passwordLogIn, logInPassword] = useState("");
-
-  var [emailChange, changeEmail] = React.useState("");
-  var [nameChange, changeName] = React.useState("");
-
-  var [passwordChange, changePassword] = React.useState("");
-
+  // Global Variables
+  const cookies = new Cookies();
+  const navigate = useNavigate();
   const chngPassword = passwordChange;
-
   const chngEmail = emailChange;
   const chngName = nameChange;
-
   const logEmail = nameLogIn;
   const logPassword = passwordLogIn;
-
   const newName = name;
   const newEmail = email;
   const newPassword = password;
@@ -106,6 +65,67 @@ const Info = () => {
   const loginData = {
     email: logEmail,
     password: logPassword,
+  };
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const theme = createTheme({
+    status: {
+      danger: "#e53e3e",
+    },
+    palette: {
+      primary: {
+        main: "#0971f1",
+        darker: "#053e85",
+      },
+      neutral: {
+        main: "#64748B",
+        contrastText: "#fff",
+      },
+      secondary: {
+        main: "#a239ca",
+        darker: "#6a0080",
+      },
+    },
+  });
+
+  const handleToCloseSnackbarSuccess = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarSuccess(false);
+  };
+
+  const handleClickEventSnackbarSuccess = () => {
+    setOpenSnackbarSuccess(true);
+  };
+
+  const handleToCloseSnackbarerror = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarError(false);
+  };
+
+  const handleClickEventSnackbarError = () => {
+    setOpenSnackbarError(true);
+  };
+
+  const closeLoginOpenRegister = () => {
+    setOpenLogin(false);
+    setOpenRegister(true);
+  };
+
+  const closeRegisterOpenLogin = () => {
+    setOpenRegister(false);
+    setOpenLogin(true);
+  };
+
+  const openPasswordDialogCloseProfile = () => {
+    setOpenPasswordDialog(true);
+    setOpenProfile(false);
+  };
+
+  const openProfileDialog = () => {
+    setOpenProfile(true);
   };
 
   function getUserInfoByEmail(userEmail) {
@@ -198,8 +218,6 @@ const Info = () => {
     });
   }
 
-  const cookies = new Cookies();
-
   const handleLogInSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3001/users/login", {
@@ -217,7 +235,6 @@ const Info = () => {
             for (let key of Object.keys(data)) {
               objectStr += `${key}:${data[key]}\n`;
             }
-
             cookies.set("user", objectStr.substring(4, 28), {
               path: "/",
             });
@@ -245,6 +262,10 @@ const Info = () => {
       setOpenRegister(true);
       localStorage.setItem("CTA", "false");
     }
+    if (cookies.get("userLoggedIn") === "true") {
+      document.getElementById("overlaybr-icon").style.display = "block";
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -489,6 +510,17 @@ const Info = () => {
             created to represent each one of these groups.
           </p>
         </Fade>
+      </div>
+      <div class="overlaybr-icon" id="overlaybr-icon">
+        <ThemeProvider theme={theme}>
+          <Fab
+            color="secondary"
+            aria-label="navigate"
+            onClick={() => navigate("/analysis")}
+          >
+            <ArrowForwardIosIcon />
+          </Fab>
+        </ThemeProvider>
       </div>
     </div>
   );

@@ -7,11 +7,11 @@ import "react-slideshow-image/dist/styles.css";
 import Fade from "react-reveal/Fade";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
-import CookieConsent, { Cookies } from "react-cookie-consent";
-import { useNavigate, useLocation } from "react-router-dom";
+import CookieConsent from "react-cookie-consent";
+import { useNavigate } from "react-router-dom";
 import kristijanPic from "../assets/images/kristijanpic.jpg";
 import jonasPic from "../assets/images/jonaspic.jpg";
-import { color } from "@mui/system";
+import { ThemeProvider } from "@emotion/react";
 
 const theme = createTheme({
   status: {
@@ -27,8 +27,8 @@ const theme = createTheme({
       contrastText: "#fff",
     },
     secondary: {
-      main: "#4717F6",
-      darker: "#053e85",
+      main: "#a239ca",
+      darker: "#6a0080",
     },
   },
 });
@@ -104,14 +104,16 @@ const Splash = () => {
 
       <div className="first-CTAbtn">
         <Fade left>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={handleClick}
-          >
-            Create an Account
-          </Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={handleClick}
+            >
+              Create an Account
+            </Button>
+          </ThemeProvider>
         </Fade>
       </div>
 
@@ -205,14 +207,16 @@ const Splash = () => {
             of how you can modify your marketing methods in the most{" "}
             <span className="yellow-text">optimal</span> way.
           </h2>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={handleClick}
-          >
-            Register Now
-          </Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              onClick={handleClick}
+            >
+              Register Now
+            </Button>
+          </ThemeProvider>
         </Fade>
       </div>
 
