@@ -110,7 +110,7 @@ router
           $push: {
             analysis: [
               {
-                date: new Date(),
+                date: +new Date(),
                 dataset: req.body.dataset,
                 response: req.body.response,
                 status: req.body.status,
@@ -122,7 +122,7 @@ router
           if (!err) {
             res.status(200).json({
               success: true,
-              message: "Analysis added",
+              message: "Analysis was successfully added.",
             });
           } else {
             res.status(401).json({ success: false, message: err });

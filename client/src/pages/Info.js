@@ -247,13 +247,11 @@ const Info = () => {
             for (let key of Object.keys(data)) {
               objectStr += `${key}:${data[key]}\n`;
             }
-            // const encryptedUserId = CryptoJS.AES.encrypt(
-            //   objectStr.substring(4, 28),
-            //   "supersecretpassword"
-            // );
-            cookies.set("user", objectStr, {
+            let objectStrSplit = objectStr.substring(4, 28);
+            cookies.set("user", objectStrSplit, {
               path: "/",
             });
+            alert(objectStr);
           });
         handleClickEventSnackbarSuccess();
         cookies.set("userLoggedIn", true, {
