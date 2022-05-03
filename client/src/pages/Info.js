@@ -16,6 +16,7 @@ import { createTheme } from "@mui/material/styles";
 import Cookies from "universal-cookie";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
+import * as CryptoJS from "crypto-js";
 
 const Info = () => {
   // Use States
