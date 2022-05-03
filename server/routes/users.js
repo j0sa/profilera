@@ -101,6 +101,34 @@ router
           }
         }
       );
+    } else if (req.body.dataset) {
+      userModel.updateOne(
+        {
+          _id: req.params.id,
+        },
+        {
+          $push: {
+            analysis: [
+              {
+                date: new Date(),
+                dataset: req.body.dataset,
+                response: req.body.response,
+                status: req.body.status,
+              },
+            ],
+          },
+        },
+        function (err) {
+          if (!err) {
+            res.status(200).json({
+              success: true,
+              message: "Analysis added",
+            });
+          } else {
+            res.status(401).json({ success: false, message: err });
+          }
+        }
+      );
     } else {
       userModel.updateOne(
         {

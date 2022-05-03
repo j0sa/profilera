@@ -19,24 +19,26 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  analysis: {
-    date: {
-      type: Date,
-      required: false,
+  analysis: [
+    {
+      date: {
+        type: Date,
+        required: false,
+      },
+      dataset: {
+        type: String,
+        required: false,
+      },
+      response: {
+        type: String,
+        required: false,
+      },
+      status: {
+        type: Number,
+        required: false,
+      },
     },
-    dataset: {
-      type: String,
-      required: false,
-    },
-    response: {
-      type: String,
-      required: false,
-    },
-    status: {
-      type: Number,
-      required: false,
-    },
-  },
+  ],
 });
 
 // UserSchema.pre('save', async function (next) {
