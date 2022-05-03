@@ -248,7 +248,7 @@ const Info = () => {
             }
             const encryptedUserId = CryptoJS.AES.encrypt(
               objectStr.substring(4, 28),
-              process.env.REACT_APP_AES_SECRET
+              "supersecretpassword"
             );
             cookies.set("user", encryptedUserId, {
               path: "/",
