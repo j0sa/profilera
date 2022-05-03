@@ -23,6 +23,8 @@ const Info = () => {
   const [openRegister, setOpenRegister] = React.useState(false);
   const [openSnackbarSuccess, setOpenSnackbarSuccess] = React.useState(false);
   const [openSnackbarError, setOpenSnackbarError] = React.useState(false);
+  const [openSnackbarPassChange, setOpenSnackbarPassChange] =
+    React.useState(false);
   const [openProfile, setOpenProfile] = React.useState(false);
   const [openPassword, setOpenPasswordDialog] = React.useState(false);
   let [name, setName] = useState("");
@@ -109,6 +111,15 @@ const Info = () => {
     setOpenSnackbarError(true);
   };
 
+  const handleToCloseSnackbarPassChange = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarPassChange(false);
+  };
+
+  const handleClickEventSnackbarPassChange = () => {
+    setOpenSnackbarPassChange(true);
+  };
+
   const closeLoginOpenRegister = () => {
     setOpenLogin(false);
     setOpenRegister(true);
@@ -178,7 +189,7 @@ const Info = () => {
       },
     }).then((response) => {
       if (response.ok) {
-        handleClickEventSnackbarSuccess();
+        handleClickEventSnackbarPassChange();
         setOpenLogin(false);
         console.log(response);
       } else {
@@ -405,14 +416,28 @@ const Info = () => {
         <Snackbar
           open={openSnackbarError}
           autoHideDuration={7000}
-          onClose={handleToCloseSnackbarerror}
+          onClose={handleToCloseSnackbarPassChange}
         >
           <Alert
-            onClose={handleToCloseSnackbarerror}
+            onClose={handleToCloseSnackbarPassChange}
             severity="error"
             sx={{ width: "100%" }}
           >
             Uh oh! Seems there was an error. Try again!
+          </Alert>
+        </Snackbar>
+
+        <Snackbar
+          open={openSnackbarPassChange}
+          autoHideDuration={7000}
+          onClose={handleToCloseSnackbarerror}
+        >
+          <Alert
+            onClose={handleToCloseSnackbarerror}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Congratulations! Your password is now changed.
           </Alert>
         </Snackbar>
       </div>
