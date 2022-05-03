@@ -5,26 +5,26 @@ require("dotenv").config({
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-//const userModel = require("./models/Users");
+// const userModel = require("./models/Users");
 const cors = require("cors");
-//const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
-const RateLimit = require("express-rate-limit");
+// const RateLimit = require("express-rate-limit");
 
 const port = process.env.PORT;
 const databaseURI = process.env.DATABASE_URI;
 const userRouter = require("./routes/users");
 
-const limiter = new RateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 5,
-});
+// const limiter = new RateLimit({
+//   windowMs: 1 * 60 * 1000, // 1 minute
+//   max: 5,
+// });
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(limiter);
+// app.use(limiter);
 
 mongoose.connect(databaseURI);
 
