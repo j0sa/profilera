@@ -246,10 +246,14 @@ const Info = () => {
             for (let key of Object.keys(data)) {
               objectStr += `${key}:${data[key]}\n`;
             }
-            cookies.set("user", objectStr.substring(4, 28), {
+            const encryptedUserId = CryptoJS.AES.encrypt(
+              objectStr.substring(4, 28),
+              process.env.REACT_APP_AES_SECRET
+            );
+            cookies.set("user", encryptedUserId, {
               path: "/",
             });
-            alert(objectStr.substring(4, 28));
+            alert(encryptedUserId);
           });
         handleClickEventSnackbarSuccess();
         cookies.set("userLoggedIn", true, {

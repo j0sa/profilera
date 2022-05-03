@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: "../.env",
-  debug: true,
+  debug: true, //remove in release
 });
 const express = require("express");
 const app = express();
