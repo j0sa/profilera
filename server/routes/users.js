@@ -9,6 +9,12 @@ router.post("/userid", (req, res) => {
   });
 });
 
+router.post("/userEmail", (req, res) => {
+  userModel.findOne({ email: req.body.email }).then((user) => {
+    res.json(user.analysis);
+  });
+});
+
 router.get("/", (req, res) => {
   userModel.find({}, (err, result) => {
     if (err) {
