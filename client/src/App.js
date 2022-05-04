@@ -1,11 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Info from "./pages/Info";
 import Privacy from "./pages/Privacy";
 import Splash from "./pages/Splash";
@@ -13,7 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Analysis from "./pages/Analysis";
 import Terms from "./pages/Terms";
 import styled from "styled-components";
-import { HashLink as HashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link";
 
 function App() {
   const StyledLink = styled(Link)`

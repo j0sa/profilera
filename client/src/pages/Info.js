@@ -16,7 +16,7 @@ import { createTheme } from "@mui/material/styles";
 import Cookies from "universal-cookie";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
-// import * as CryptoJS from "crypto-js";
+import * as CryptoJS from "crypto-js";
 
 const Info = () => {
   // Use States
@@ -140,6 +140,18 @@ const Info = () => {
     setOpenProfile(true);
   };
 
+  const encryptStringWithAES = (textToEncrypt) => {
+    const passphrase = "123"; // make this an environment variable
+    return CryptoJS.AES.encrypt(textToEncrypt, passphrase).toString();
+  };
+
+  const decryptStringWithAES = (encryptedText) => {
+    const passphrase = "123"; // make this an environment variable
+    const bytes = CryptoJS.AES.decrypt(encryptedText, passphrase);
+    const originalText = bytes.toString(CryptoJS.enc.Utf8);
+    return originalText;
+  };
+
   function getUserInfoByEmail(userEmail) {
     const emailToSearch = {
       email: userEmail,
@@ -182,7 +194,7 @@ const Info = () => {
 
   const handlePasswordChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + cookies.get("user"), {
+    fetch("http://localhost:3001/users/" + cookies.get("userId"), {
       method: "PUT",
       body: JSON.stringify(passwordData),
       headers: {
@@ -202,7 +214,7 @@ const Info = () => {
 
   const handleUserInfoChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + cookies.get("user"), {
+    fetch("http://localhost:3001/users/" + cookies.get("userId"), {
       method: "PUT",
       body: JSON.stringify(changeData),
       headers: {
@@ -247,25 +259,27 @@ const Info = () => {
             for (let key of Object.keys(data)) {
               objectStr += `${key}:${data[key]}\n`;
             }
-            let objectStrSplit = objectStr.substring(4, 28);
-            cookies.set("user", objectStrSplit, {
-              path: "/",
-            });
-            alert(objectStr);
+            cookies.set(
+              "userId",
+              encryptStringWithAES(objectStr.substring(4, 28)),
+              {
+                path: "/",
+              }
+            );
+            console.table(objectStr);
           });
         handleClickEventSnackbarSuccess();
         cookies.set("userLoggedIn", true, {
           path: "/",
         });
-        console.log(cookies.get("user"));
         setOpenLogin(false);
-        console.log(response);
+        console.warn(response);
       } else {
         handleClickEventSnackbarError();
         cookies.set("userLoggedIn", false, {
           path: "/",
         });
-        console.log(response);
+        console.warn(response);
       }
     });
   };
