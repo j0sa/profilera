@@ -194,13 +194,17 @@ const Info = () => {
 
   const handlePasswordChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + cookies.get("userId"), {
-      method: "PUT",
-      body: JSON.stringify(passwordData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
+    fetch(
+      "http://localhost:3001/users/" +
+        decryptStringWithAES(cookies.get("userId")),
+      {
+        method: "PUT",
+        body: JSON.stringify(passwordData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((response) => {
       if (response.ok) {
         handleClickEventSnackbarPassChange();
         setOpenLogin(false);
@@ -214,13 +218,17 @@ const Info = () => {
 
   const handleUserInfoChangeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3001/users/" + cookies.get("userId"), {
-      method: "PUT",
-      body: JSON.stringify(changeData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
+    fetch(
+      "http://localhost:3001/users/" +
+        decryptStringWithAES(cookies.get("userId")),
+      {
+        method: "PUT",
+        body: JSON.stringify(changeData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((response) => {
       if (response.ok) {
         handleClickEventSnackbarSuccess();
         setOpenLogin(false);
@@ -273,13 +281,14 @@ const Info = () => {
           path: "/",
         });
         setOpenLogin(false);
+        console.assert(dataUU);
         console.warn(response);
       } else {
         handleClickEventSnackbarError();
         cookies.set("userLoggedIn", false, {
           path: "/",
         });
-        console.warn(response);
+        console.error(response);
       }
     });
   };
@@ -289,7 +298,7 @@ const Info = () => {
       setOpenRegister(true);
       localStorage.setItem("CTA", "false");
     }
-    if (cookies.get("userLoggedIn") === "true") {
+    if (decryptStringWithAES(cookies.get("userId")) === "true") {
       document.getElementById("overlaybr-icon").style.display = "block";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -323,7 +332,7 @@ const Info = () => {
                 margin="dense"
                 id="name"
                 label="Email"
-                onChange={(event) => logInEmail(event.target.value)}
+                onChange={(e) => logInEmail(e.target.value)}
                 type="email"
                 required={true}
                 name="email"
@@ -334,7 +343,7 @@ const Info = () => {
                 margin="dense"
                 id="password"
                 label="Password"
-                onChange={(event) => logInPassword(event.target.value)}
+                onChange={(e) => logInPassword(e.target.value)}
                 type="password"
                 required={true}
                 name="password"
@@ -368,7 +377,7 @@ const Info = () => {
                 id="name"
                 required={true}
                 label="Name"
-                onChange={(event) => setName(event.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 name="name"
                 type="text"
                 fullWidth
@@ -379,7 +388,7 @@ const Info = () => {
                 id="email"
                 required={true}
                 label="Email"
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
                 fullWidth
@@ -390,7 +399,7 @@ const Info = () => {
                 id="password"
                 required={true}
                 label="Password"
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 name="password"
                 fullWidth
