@@ -1,0 +1,13 @@
+.overlayul-icon {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 100;
+  display: none;
+}
+
+.overlayul-icon::before {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
