@@ -298,7 +298,7 @@ const Info = () => {
       setOpenRegister(true);
       localStorage.setItem("CTA", "false");
     }
-    if (decryptStringWithAES(cookies.get("userId")) === "true") {
+    if (cookies.get("userLoggedIn") === "true") {
       document.getElementById("overlaybr-icon").style.display = "block";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

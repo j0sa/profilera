@@ -9,10 +9,18 @@ router.post("/userid", (req, res) => {
   });
 });
 
-router.post("/userEmail", (req, res) => {
-  userModel.findOne({ email: req.body.email }).then((user) => {
-    res.json(user.analysis);
-  });
+router.post("/getAnalysis", (req, res) => {
+  if (req.body._analysisID) {
+    userModel
+      .findOne({ "analysis._id": req.body._analysisID })
+      .then((analysis) => {
+        res.json(analysis);
+      });
+  } else {
+    userModel.findOne({ _id: req.body._id }).then((user) => {
+      res.json(user.analysis);
+    });
+  }
 });
 
 router.get("/", (req, res) => {
@@ -86,8 +94,6 @@ router
       });
   })
   .put(async (req, res, next) => {
-    console.log(req.params.id);
-
     if (req.body.password) {
       userModel.updateOne(
         {
