@@ -101,7 +101,7 @@ router
           }
         }
       );
-    } else if (req.body.dataset) {
+    } else if (req.body.dataset || req.body.response || req.body.status) {
       userModel.updateOne(
         {
           _id: req.params.id,

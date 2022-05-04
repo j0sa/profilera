@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
         required: false,
       },
       dataset: {
-        type: String,
+        type: Array,
         required: false,
       },
       response: {
