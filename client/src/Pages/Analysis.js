@@ -9,12 +9,24 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 
 const Analysis = () => {
   // let [data, setData] = React.useState("");
 
   const navigate = useNavigate();
   const cookies = new Cookies();
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
 
   const theme = createTheme({
     status: {
@@ -46,6 +58,27 @@ const Analysis = () => {
     const bytes = CryptoJS.AES.decrypt(encryptedText, passphrase);
     const originalText = bytes.toString(CryptoJS.enc.Utf8);
     return originalText;
+  };
+
+  const handleGetAnalys = (e) => {
+    fetch(
+      "http://localhost:3001/users//getAnalyses/" +
+        decryptStringWithAES(cookies.get("userId")),
+      {
+        method: "GET",
+      }
+    ).then((response) => {
+      if (response.ok) {
+        console.log(response);
+        response.json().then((dataJson) => {
+          const info = JSON.stringify(dataJson);
+
+          return info;
+        });
+      } else {
+        console.log(response);
+      }
+    });
   };
 
   const handleFile = (e) => {
@@ -94,6 +127,13 @@ const Analysis = () => {
     fileData.readAsText(file);
   };
 
+  const analys = {
+    date: "ssda",
+    dataset: "iiiiiiiiii",
+    response: "kkkkkkkkkkkkkkkkk",
+    status: "2",
+  };
+
   // const handleFileSubmited = (e) => {
   //   e.preventDefault();
 
@@ -121,6 +161,15 @@ const Analysis = () => {
 
   return (
     <div>
+      <div>
+        <Box sx={{ width: "50%" }}>
+          <Stack spacing={2}>
+            <Item onClick={handleGetAnalys}>
+              {analys.date} {analys.dataset} {analys.response} {analys.status}
+            </Item>
+          </Stack>
+        </Box>
+      </div>
       <div className="upload-button">
         <label htmlFor="upload-dataset">
           <ThemeProvider theme={theme}>
