@@ -120,6 +120,7 @@ const Splash = () => {
       <div class="use-profilera-text-div">
         <Fade left>
           <h2>
+            <br></br>
             Make use of Profilera's sophisticated{" "}
             <span className="yellow-text">AI-assisted</span> pattern-revealing
             service and gain new knowledge and insights about your customer
