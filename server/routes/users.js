@@ -9,10 +9,15 @@ router.post("/userid", (req, res) => {
   });
 });
 
-router.post("/getAnalyses", (req, res) => {
-  userModel.findOne({ _id: req.body._id }).then((user) => {
-    res.json(user.analysis);
-  });
+router.get("/getAnalyses/:_userId/:_analysisId?", (req, res) => {
+  let userId = req.params._userId;
+  let analysisId = req.params._analysisId;
+  analysisId =
+    typeof analysisId === "undefined"
+      ? userModel.findOne({ _id: userId }).then((user) => {
+          res.json(user.analysis);
+        })
+      : console.log("put single instance of analysis here");
 });
 
 router.get("/", (req, res) => {
@@ -126,7 +131,7 @@ router
           if (!err) {
             res.status(200).json({
               success: true,
-              message: "Analysis was successfully added.",
+              message: "Analysis was successfully added!",
             });
           } else {
             res.status(401).json({ success: false, message: err });
@@ -162,7 +167,7 @@ router
       .then(() => {
         res.sendStatus(200).json({
           success: true,
-          message: "User Was deleted!",
+          message: "User was successfully deleted!",
         });
       })
       .catch((error) => {

@@ -3,13 +3,12 @@ import "./css/Analysis.scss";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
 import Fab from "@mui/material/Fab";
 import Cookies from "universal-cookie";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
+import AddIcon from "@mui/icons-material/Add";
 
 const Analysis = () => {
   // let [data, setData] = React.useState("");
@@ -122,12 +121,15 @@ const Analysis = () => {
 
   return (
     <div>
-      <div className="uploadButton">
-        <ThemeProvider theme={theme}>
-          <Button variant="contained" component="label" color="secondary">
-            Upload New Dataset&nbsp;&nbsp;
-            <CloudUploadIcon />
+      <div className="upload-button">
+        <label htmlFor="upload-dataset">
+          <ThemeProvider theme={theme}>
             <input
+              style={{
+                display: "none",
+              }}
+              id="upload-dataset"
+              name="upload-dataset"
               type="file"
               accept=".csv,.xlsx,.xls"
               onChange={(e) => {
@@ -135,9 +137,18 @@ const Analysis = () => {
               }}
               hidden
             />
-          </Button>
-        </ThemeProvider>
+            <Fab
+              color="secondary"
+              size="large"
+              component="span"
+              aria-label="add"
+            >
+              <AddIcon />
+            </Fab>
+          </ThemeProvider>
+        </label>
       </div>
+
       <div class="overlaybr-icon-info" id="overlaybr-icon-info">
         <ThemeProvider theme={theme}>
           <Fab
