@@ -17,7 +17,7 @@ router.get("/getAnalyses/:_userId/:_analysisId?", (req, res) => {
       ? userModel.findOne({ _id: userId }).then((user) => {
           res.json(user.analysis);
         })
-      : console.log("put single instance of analysis here");
+      : res.send("Oops. This functionality hasn't been implemented yet.");
 });
 
 router.get("/", (req, res) => {
