@@ -1116,6 +1116,9 @@ a {
 .content-jumbo {
   font-size: 64px !important;
 }
+.content-xjumbo {
+  font-size: 76px !important;
+}
 .content-left-align {
   text-align: left !important;
 }
@@ -1493,6 +1496,12 @@ a {
 .content-hover-text-grey:hover,
 .content-text-gray,
 .content-hover-text-gray:hover {
+  color: #bfbfbf !important;
+}
+.content-text-grey-whitebox,
+.content-hover-text-grey-whitebox:hover,
+.content-text-gray-whitebox,
+.content-hover-text-gray-whitebox:hover {
   color: #757575 !important;
 }
 .content-text-light-grey,
@@ -1634,4 +1643,26 @@ a {
 .content-border-pale-blue,
 .content-hover-border-pale-blue:hover {
   border-color: #e7ffff !important;
+}
+
+.header-machine-learning {
+  padding: 128px 16px;
+}
+
+blockquote {
+  margin: 0;
+}
+
+blockquote p {
+  padding: 15px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+blockquote p::before {
+  content: "\201C";
+}
+
+blockquote p::after {
+  content: "\201D";
 }
