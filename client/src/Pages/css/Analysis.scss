@@ -11,6 +11,24 @@
   left: 50%;
 }
 
+.itsComplicatedBTNdiv{
+  height: 50em;
+  width: 50em;
+  margin-left: 10%;
+}
+
+.itsComplicatedBTN{
+  z-index: 10000;
+  margin-top: 10%;
+  margin-left: 4%;
+  height:5%;
+  background-color: aquamarine;
+}
+
+.my-notes{
+  z-index: 10000;
+}
+
 .overlaybr-icon-info {
   position: fixed;
   bottom: 30px;

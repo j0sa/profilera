@@ -9,24 +9,13 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
 
 const Analysis = () => {
   // let [data, setData] = React.useState("");
 
   const navigate = useNavigate();
   const cookies = new Cookies();
-
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
+  let analysis = [];
 
   const theme = createTheme({
     status: {
@@ -60,6 +49,25 @@ const Analysis = () => {
     return originalText;
   };
 
+  function analysTemplate(dataArray) {
+    // console.log(dataArray.date);
+    return (
+      <table class="my-notes" cellspacing="0" cellpadding="0">
+        <tbody class="note-cell">
+          <tr>
+            <th class="title">${dataArray.date}</th>
+            <td colspan="6" class="date">
+              ${dataArray.response}
+            </td>
+          </tr>
+          <td class="summary" colspan="6">
+            ${dataArray.status}\n$
+          </td>
+        </tbody>
+      </table>
+    );
+  }
+
   const handleGetAnalys = (e) => {
     fetch(
       "http://localhost:3001/users//getAnalyses/" +
@@ -71,9 +79,20 @@ const Analysis = () => {
       if (response.ok) {
         console.log(response);
         response.json().then((dataJson) => {
-          const info = JSON.stringify(dataJson);
+          console.log(JSON.stringify(dataJson));
+          for (var key in dataJson) {
+            // let analys = [
+            //   { date: dataJson[key].date },
+            //   { response: dataJson[key].response },
+            //   { status: dataJson[key].status },
+            // ];
+            analysis.push(JSON.stringify(dataJson[key]));
 
-          return info;
+            // document.getElementById("scroll-analys").innerHTML = analysis
+            //   .map(analysTemplate)
+            //   .join("");
+          }
+          console.table(analysis);
         });
       } else {
         console.log(response);
@@ -127,12 +146,12 @@ const Analysis = () => {
     fileData.readAsText(file);
   };
 
-  const analys = {
-    date: "ssda",
-    dataset: "iiiiiiiiii",
-    response: "kkkkkkkkkkkkkkkkk",
-    status: "2",
-  };
+  // const analys = {
+  //   date: "ssda",
+  //   dataset: "iiiiiiiiii",
+  //   response: "kkkkkkkkkkkkkkkkk",
+  //   status: "2",
+  // };
 
   // const handleFileSubmited = (e) => {
   //   e.preventDefault();
@@ -161,15 +180,16 @@ const Analysis = () => {
 
   return (
     <div>
-      <div>
-        <Box sx={{ width: "50%" }}>
-          <Stack spacing={2}>
-            <Item onClick={handleGetAnalys}>
-              {analys.date} {analys.dataset} {analys.response} {analys.status}
-            </Item>
-          </Stack>
-        </Box>
+      <div className="itsComplicatedBTNdiv">
+        <button
+          className="itsComplicatedBTN"
+          type="button"
+          onClick={handleGetAnalys}
+        ></button>
       </div>
+
+      <section id="scroll-analys"></section>
+
       <div className="upload-button">
         <label htmlFor="upload-dataset">
           <ThemeProvider theme={theme}>
