@@ -52,25 +52,6 @@ const Analysis = () => {
     return originalText;
   };
 
-  function analysTemplate(dataArray) {
-    // console.log(dataArray.date);
-    return (
-      <table class="my-notes" cellspacing="0" cellpadding="0">
-        <tbody class="note-cell">
-          <tr>
-            <th class="title">${dataArray.date}</th>
-            <td colspan="6" class="date">
-              ${dataArray.response}
-            </td>
-          </tr>
-          <td class="summary" colspan="6">
-            ${dataArray.status}\n$
-          </td>
-        </tbody>
-      </table>
-    );
-  }
-
   const handleGetAnalys = (e) => {
     fetch(
       "http://localhost:3001/users//getAnalyses/" +
@@ -101,15 +82,23 @@ const Analysis = () => {
 
           for (var item in processedList) {
             for (var item2 in processedList[item]) {
-              if (processedList[item][item2].date != undefined) {
+              if (
+                processedList[item][item2].date != undefined ||
+                processedList[item][item2].status != undefined
+              ) {
                 console.log(processedList[item][item2].date);
 
-                ReactDOM.render(
-                  <ul>
-                    <li>Date:{processedList[item][item2].date}</li>
-                  </ul>,
-                  document.getElementById("scroll-analys")
+                console.log(processedList[item][item2].status);
+
+                var ul = document.getElementById("list");
+                var li = document.createElement("li");
+                li.appendChild(
+                  document.createTextNode(
+                    processedList[item][item2].date +
+                      processedList[item][item2].status
+                  )
                 );
+                ul.appendChild(li);
               }
             }
           }
@@ -181,6 +170,12 @@ const Analysis = () => {
           type="button"
           onClick={handleGetAnalys}
         ></button>
+      </div>
+
+      <div>
+        <ul id="list">
+          <li class="listItems"></li>
+        </ul>
       </div>
 
       <section id="scroll-analys"></section>

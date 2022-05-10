@@ -24,6 +24,18 @@
   height:5%;
   background-color: aquamarine;
 }
+#list{
+  width:50%;
+  z-index: 1000;
+font-size:medium; 
+align-content: center; 
+display: inline-block;
+  height:50%
+}
+
+.listItems{
+  color:aliceblue;
+}
 
 .my-notes{
   z-index: 10000;
