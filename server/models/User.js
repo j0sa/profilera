@@ -34,6 +34,7 @@ const UserSchema = new mongoose.Schema({
         required: false,
       },
       status: {
+        //1 = not started 2 = in progress 3 = done 4 = suspended 5 = aborted
         type: Number,
         required: false,
       },

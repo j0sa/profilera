@@ -84,7 +84,8 @@ const Analysis = () => {
             for (var item2 in processedList[item]) {
               if (
                 processedList[item][item2].date != undefined ||
-                processedList[item][item2].status != undefined
+                processedList[item][item2].status != undefined ||
+                processedList[item][item2].response != undefined
               ) {
                 console.log(processedList[item][item2].date);
 
@@ -94,8 +95,13 @@ const Analysis = () => {
                 var li = document.createElement("li");
                 li.appendChild(
                   document.createTextNode(
-                    processedList[item][item2].date +
-                      processedList[item][item2].status
+                    "Date: " +
+                      processedList[item][item2].date +
+                      " Status:  " +
+                      processedList[item][item2].status +
+                      " Response: " +
+                      processedList[item][item2].response +
+                      " "
                   )
                 );
                 ul.appendChild(li);
@@ -125,6 +131,8 @@ const Analysis = () => {
 
       const fileData = {
         dataset: csv,
+        status: 1,
+        response: "nothing yet",
       };
 
       fetch(
