@@ -10,12 +10,15 @@ import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
 
+import ReactDOM from "react-dom";
+
 const Analysis = () => {
   // let [data, setData] = React.useState("");
 
   const navigate = useNavigate();
   const cookies = new Cookies();
-  let analysis = [];
+  var unprocessedList = [];
+  var processedList = [];
 
   const theme = createTheme({
     status: {
@@ -77,22 +80,39 @@ const Analysis = () => {
       }
     ).then((response) => {
       if (response.ok) {
+        unprocessedList = [];
+        processedList = [];
         console.log(response);
         response.json().then((dataJson) => {
-          console.log(JSON.stringify(dataJson));
+          // console.log(JSON.stringify(dataJson));
           for (var key in dataJson) {
-            // let analys = [
-            //   { date: dataJson[key].date },
-            //   { response: dataJson[key].response },
-            //   { status: dataJson[key].status },
-            // ];
-            analysis.push(JSON.stringify(dataJson[key]));
-
-            // document.getElementById("scroll-analys").innerHTML = analysis
-            //   .map(analysTemplate)
-            //   .join("");
+            unprocessedList.push(dataJson[key]);
           }
-          console.table(analysis);
+          for (var item in unprocessedList) {
+            let data = [
+              { date: unprocessedList[item].date },
+              { status: unprocessedList[item].status },
+              { dataset: unprocessedList[item].dataset },
+              { response: unprocessedList[item].response },
+            ];
+
+            processedList.push(data);
+          }
+
+          for (var item in processedList) {
+            for (var item2 in processedList[item]) {
+              if (processedList[item][item2].date != undefined) {
+                console.log(processedList[item][item2].date);
+
+                ReactDOM.render(
+                  <ul>
+                    <li>Date:{processedList[item][item2].date}</li>
+                  </ul>,
+                  document.getElementById("scroll-analys")
+                );
+              }
+            }
+          }
         });
       } else {
         console.log(response);
@@ -145,31 +165,6 @@ const Analysis = () => {
     fileData.onloadend = handleFile;
     fileData.readAsText(file);
   };
-
-  // const analys = {
-  //   date: "ssda",
-  //   dataset: "iiiiiiiiii",
-  //   response: "kkkkkkkkkkkkkkkkk",
-  //   status: "2",
-  // };
-
-  // const handleFileSubmited = (e) => {
-  //   e.preventDefault();
-
-  //   fetch("http://localhost:3001/users/" + cookies.get("user"), {
-  //     method: "PUT",
-  //     body: JSON.stringify(csv),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then((response) => {
-  //     if (response.ok) {
-  //       console.log(response);
-  //     } else {
-  //       console.log(response);
-  //     }
-  //   });
-  // };
 
   useEffect(() => {
     if (cookies.get("userLoggedIn") === "true") {
