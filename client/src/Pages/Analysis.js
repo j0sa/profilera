@@ -11,8 +11,6 @@ import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
 
 const Analysis = () => {
-  // let [data, setData] = React.useState("");
-
   // Global Variables
   const navigate = useNavigate();
   const cookies = new Cookies();
@@ -85,17 +83,14 @@ const Analysis = () => {
               }
             }
           }
-
           processedList.forEach((element) => {
             console.log(element.date);
             var ul = document.getElementById("list");
             var li = document.createElement("li");
-
             if (element.date !== undefined) {
               li.appendChild(document.createTextNode("Date: " + element.date));
               ul.appendChild(li);
             }
-
             if (element.status !== undefined) {
               li.appendChild(
                 document.createTextNode(" Status: " + element.status)
@@ -105,7 +100,6 @@ const Analysis = () => {
               }
               ul.appendChild(li);
             }
-
             if (element.response !== undefined) {
               li.appendChild(
                 document.createTextNode(" Response: " + element.response)
@@ -134,13 +128,11 @@ const Analysis = () => {
         dynamicTyping: false,
         skipEmptyLines: true,
       });
-
       const fileData = {
         dataset: csv,
         status: 1,
         response: "nothing yet",
       };
-
       fetch(
         "http://localhost:3001/users/" +
           decryptStringWithAES(cookies.get("userId")),
@@ -187,7 +179,7 @@ const Analysis = () => {
 
       <section id="scroll-analys"></section>
 
-      <div className="upload-button">
+      <div class="upload-button">
         <label htmlFor="upload-dataset">
           <ThemeProvider theme={theme}>
             <input
