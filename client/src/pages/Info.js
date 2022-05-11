@@ -16,6 +16,8 @@ import Cookies from "universal-cookie";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import * as CryptoJS from "crypto-js";
+import machineLearningPicture from "../assets/images/machine-learning2.png";
+import aiVsMlVsDl from "../assets/images/ai-vs-ml-vs-dl.png";
 
 const Info = () => {
   // Use States
@@ -534,9 +536,10 @@ const Info = () => {
         </form>
       </Dialog>
 
+      <br></br>
       <header class="content-container content-purple content-center header-machine-learning">
         <h1 class="content-margin content-xjumbo">MACHINE LEARNING</h1>
-        <p class="content-xlarge">
+        <p class="content-large">
           This introduction to machine learning provides an overview of its
           history, important definitions, applications, and concerns within
           businesses today.
@@ -549,25 +552,36 @@ const Info = () => {
             <h1 class="content-title">What is machine learning?</h1>
             <h5 class="content-padding-32 content-texts">
               Machine learning is a branch of artificial intelligence (AI) and
-              computer science which focuses on the use of data and algorithms
-              to imitate the way that humans learn, gradually improving its
-              accuracy.
+              computer science which focuses on the use of{" "}
+              <span class="content-text-yellow">data</span> and{" "}
+              <span class="content-text-yellow">algorithms</span>
+              to imitate the way that humans learn, gradually{" "}
+              <span class="content-text-yellow">improving</span> its accuracy.
             </h5>
             <p class="content-text-grey">
-              Machine learning is an important component of the growing field of
-              data science. Through the use of statistical methods, algorithms
-              are trained to make classifications or predictions, uncovering key
-              insights within data mining projects. These insights subsequently
-              drive decision making within applications and businesses, ideally
-              impacting key growth metrics. As big data continues to expand and
-              grow, the market demand for data scientists will increase,
-              requiring them to assist in the identification of the most
-              relevant business questions and subsequently the data to answer
-              them.
+              Machine learning is an{" "}
+              <span class="content-text-yellow">important</span> component of
+              the growing field of data science. Through the use of statistical
+              methods, algorithms are trained to make classifications or{" "}
+              <span class="content-text-yellow">predictions</span>, uncovering{" "}
+              <span class="content-text-yellow">key insights</span> within data
+              mining projects. These insights subsequently drive decision making
+              within applications and businesses, ideally impacting key{" "}
+              <span class="content-text-yellow">growth metrics</span>. As big
+              data continues to expand and grow, the market demand for data
+              scientists will increase, requiring them to assist in the
+              identification of the most relevant business questions and
+              subsequently the data to answer them.
             </p>
           </div>
           <div class="content-third content-center">
-            <i class="content-padding-64 content-text-red"></i>
+            <i class="content-padding-64 content-text-red">
+              <img
+                class="machine-learning-logo"
+                src={machineLearningPicture}
+                alt="Machine Learning"
+              ></img>
+            </i>
           </div>
         </div>
       </div>
@@ -575,7 +589,13 @@ const Info = () => {
       <div class="content-row-padding content-light-grey content-padding-64 content-container">
         <div class="content-content">
           <div class="content-third content-center">
-            <i class="content-padding-64 content-text-red content-margin-right"></i>
+            <i class="content-padding-64 content-text-red content-margin-right">
+              <img
+                class="machine-learning-logo"
+                src={aiVsMlVsDl}
+                alt="Machine Learning"
+              ></img>
+            </i>
           </div>
           <div class="content-twothird">
             <h1 class="content-title">
@@ -648,25 +668,34 @@ const Info = () => {
             <p class="content-text-grey">
               <ol>
                 <li>
-                  <strong>A Decision Process:</strong> In general, machine
-                  learning algorithms are used to make a prediction or
-                  classification. Based on some input data, which can be
-                  labelled or unlabeled, your algorithm will produce an estimate
-                  about a pattern in the data.
+                  <strong>
+                    <span class="content-text-purple">A Decision Process:</span>
+                  </strong>{" "}
+                  In general, machine learning algorithms are used to make a
+                  prediction or classification. Based on some input data, which
+                  can be labelled or unlabeled, your algorithm will produce an
+                  estimate about a pattern in the data.
                 </li>
                 <li>
-                  <strong>An Error Function:</strong> An error function serves
-                  to evaluate the prediction of the model. If there are known
-                  examples, an error function can make a comparison to assess
-                  the accuracy of the model.
+                  <strong>
+                    <span class="content-text-purple">An Error Function:</span>
+                  </strong>{" "}
+                  An error function serves to evaluate the prediction of the
+                  model. If there are known examples, an error function can make
+                  a comparison to assess the accuracy of the model.
                 </li>
                 <li>
-                  <strong>An Model Optimization Process:</strong> If the model
-                  can fit better to the data points in the training set, then
-                  weights are adjusted to reduce the discrepancy between the
-                  known example and the model estimate. The algorithm will
-                  repeat this evaluate and optimize process, updating weights
-                  autonomously until a threshold of accuracy has been met.{" "}
+                  <strong>
+                    <span class="content-text-purple">
+                      An Model Optimization Process:
+                    </span>
+                  </strong>{" "}
+                  If the model can fit better to the data points in the training
+                  set, then weights are adjusted to reduce the discrepancy
+                  between the known example and the model estimate. The
+                  algorithm will repeat this evaluate and optimize process,
+                  updating weights autonomously until a threshold of accuracy
+                  has been met.{" "}
                 </li>
               </ol>
             </p>
@@ -689,7 +718,11 @@ const Info = () => {
             </h5>
             <p class="content-text-grey-whitebox">
               <p>
-                <strong>Supervised machine learning</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Supervised machine learning
+                  </span>
+                </strong>
               </p>
               <p>
                 Supervised learning, also known as supervised machine learning,
@@ -706,7 +739,11 @@ const Info = () => {
                 random forest, support vector machine (SVM), and more.
               </p>
               <p>
-                <strong>Unsupervised machine learning</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Unsupervised machine learning
+                  </span>
+                </strong>
               </p>
               <p>
                 Unsupervised learning, also known as unsupervised machine
@@ -725,7 +762,11 @@ const Info = () => {
                 methods, and more.
               </p>
               <p>
-                <strong>Semi-supervised learning</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Semi-supervised learning
+                  </span>
+                </strong>
               </p>
               <p>
                 Semi-supervised learning offers a happy medium between
@@ -755,25 +796,33 @@ const Info = () => {
               </p>
               <p>
                 Supervised learning can be separated into two types of problems
-                when data mining—classification and regression:
+                when data mining —{" "}
+                <span class="content-text-purple">classification</span> and{" "}
+                <span class="content-text-purple">regression:</span>
               </p>
             </h5>
             <p class="content-text-grey">
               <p>
-                <strong>Classification</strong> uses an algorithm to accurately
-                assign test data into specific categories. It recognizes
-                specific entities within the dataset and attempts to draw some
-                conclusions on how those entities should be labeled or defined.
-                Common classification algorithms are linear classifiers, support
-                vector machines (SVM), decision trees, k-nearest neighbor, and
-                random forest, which are described in more detail below.
+                <strong>
+                  <span class="content-text-purple">Classification</span>
+                </strong>{" "}
+                uses an algorithm to accurately assign test data into specific
+                categories. It recognizes specific entities within the dataset
+                and attempts to draw some conclusions on how those entities
+                should be labeled or defined. Common classification algorithms
+                are linear classifiers, support vector machines (SVM), decision
+                trees, k-nearest neighbor, and random forest, which are
+                described in more detail below.
               </p>
               <p>
-                <strong>Regression</strong> is used to understand the
-                relationship between dependent and independent variables. It is
-                commonly used to make projections, such as for sales revenue for
-                a given business. Linear regression, logistical regression, and
-                polynomial regression are popular regression algorithms.
+                <strong>
+                  <span class="content-text-purple">Regression</span>
+                </strong>{" "}
+                is used to understand the relationship between dependent and
+                independent variables. It is commonly used to make projections,
+                such as for sales revenue for a given business. Linear
+                regression, logistical regression, and polynomial regression are
+                popular regression algorithms.
               </p>
             </p>
           </div>
@@ -798,7 +847,9 @@ const Info = () => {
             </h5>
             <p class="content-text-grey-whitebox">
               <p>
-                <strong>Neural networks</strong>
+                <strong>
+                  <span class="content-text-purple">Neural networks</span>
+                </strong>
               </p>
               <p>
                 Primarily leveraged for deep learning algorithms, neural
@@ -814,7 +865,9 @@ const Info = () => {
                 accuracy to yield the correct answer.
               </p>
               <p>
-                <strong>Naive Bayes</strong>
+                <strong>
+                  <span class="content-text-purple">Naive Bayes</span>
+                </strong>
               </p>
               <p>
                 Naive Bayes is classification approach that adopts the principle
@@ -828,7 +881,9 @@ const Info = () => {
                 and recommendation systems.
               </p>
               <p>
-                <strong>Linear regression</strong>
+                <strong>
+                  <span class="content-text-purple">Linear regression</span>
+                </strong>
               </p>
               <p>
                 Linear regression is used to identify the relationship between a
@@ -843,7 +898,9 @@ const Info = () => {
                 models, this line is straight when plotted on a graph.
               </p>
               <p>
-                <strong>Logistic regression</strong>
+                <strong>
+                  <span class="content-text-purple">Logistic regression</span>
+                </strong>
               </p>
               <p>
                 While linear regression is leveraged when dependent variables
@@ -855,7 +912,11 @@ const Info = () => {
                 classification problems, such as spam identification.
               </p>
               <p>
-                <strong>Support vector machine (SVM)</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Support vector machine (SVM)
+                  </span>
+                </strong>
               </p>
               <p>
                 A support vector machine is a popular supervised learning model
@@ -868,7 +929,9 @@ const Info = () => {
                 side of the plane.
               </p>
               <p>
-                <strong>K-nearest neighbor</strong>
+                <strong>
+                  <span class="content-text-purple">K-nearest neighbor</span>
+                </strong>
               </p>
               <p>
                 K-nearest neighbor, also known as the KNN algorithm, is a
@@ -888,7 +951,9 @@ const Info = () => {
                 engines and image recognition.
               </p>
               <p>
-                <strong>Random forest</strong>
+                <strong>
+                  <span class="content-text-purple">Random forest</span>
+                </strong>
               </p>
               <p>
                 Random forest is another flexible supervised machine learning
@@ -912,35 +977,49 @@ const Info = () => {
             </h5>
             <p class="content-text-grey">
               <p>
-                <strong>Image- and object-recognition:</strong> Supervised
-                learning algorithms can be used to locate, isolate, and
-                categorize objects out of videos or images, making them useful
-                when applied to various computer vision techniques and imagery
-                analysis.
+                <strong>
+                  <span class="content-text-purple">
+                    Image- and object-recognition:
+                  </span>
+                </strong>{" "}
+                Supervised learning algorithms can be used to locate, isolate,
+                and categorize objects out of videos or images, making them
+                useful when applied to various computer vision techniques and
+                imagery analysis.
               </p>
               <p>
-                <strong>Predictive analytics:</strong> A widespread use case for
-                supervised learning models is in creating predictive analytics
-                systems to provide deep insights into various business data
-                points. This allows enterprises to anticipate certain results
-                based on a given output variable, helping business leaders
-                justify decisions or pivot for the benefit of the organization.
+                <strong>
+                  <span class="content-text-purple">Predictive analytics:</span>
+                </strong>{" "}
+                A widespread use case for supervised learning models is in
+                creating predictive analytics systems to provide deep insights
+                into various business data points. This allows enterprises to
+                anticipate certain results based on a given output variable,
+                helping business leaders justify decisions or pivot for the
+                benefit of the organization.
               </p>
               <p>
-                <strong>Customer sentiment analysis:</strong> Using supervised
-                machine learning algorithms, organizations can extract and
-                classify important pieces of information from large volumes of
-                data—including context, emotion, and intent—with very little
-                human intervention. This can be incredibly useful when gaining a
-                better understanding of customer interactions and can be used to
-                improve brand engagement efforts.
+                <strong>
+                  <span class="content-text-purple">
+                    Customer sentiment analysis:
+                  </span>
+                </strong>{" "}
+                Using supervised machine learning algorithms, organizations can
+                extract and classify important pieces of information from large
+                volumes of data—including context, emotion, and intent—with very
+                little human intervention. This can be incredibly useful when
+                gaining a better understanding of customer interactions and can
+                be used to improve brand engagement efforts.
               </p>
               <p>
-                <str>Spam detection:</str> Spam detection is another example of
-                a supervised learning model. Using supervised classification
-                algorithms, organizations can train databases to recognize
-                patterns or anomalies in new data to organize spam and
-                non-spam-related correspondences effectively.
+                <str>
+                  <span class="content-text-purple">Spam detection:</span>
+                </str>{" "}
+                Spam detection is another example of a supervised learning
+                model. Using supervised classification algorithms, organizations
+                can train databases to recognize patterns or anomalies in new
+                data to organize spam and non-spam-related correspondences
+                effectively.
               </p>
             </p>
           </div>
@@ -966,20 +1045,26 @@ const Info = () => {
             <p class="content-text-grey-whitebox">
               <ol>
                 <li>
-                  Supervised learning models can require certain levels of
-                  expertise to structure accurately.
+                  Supervised learning models can require certain{" "}
+                  <span class="content-text-yellow">levels of expertise</span>{" "}
+                  to structure accurately.
                 </li>
                 <li>
-                  Training supervised learning models can be very time
-                  intensive.
+                  Training supervised learning models can be very{" "}
+                  <span class="content-text-yellow">time intensive</span>.
                 </li>
                 <li>
-                  Datasets can have a higher likelihood of human error,
-                  resulting in algorithms learning incorrectly.
+                  Datasets can have a higher likelihood of{" "}
+                  <span class="content-text-yellow">human error</span>,
+                  resulting in algorithms learning{" "}
+                  <span class="content-text-yellow">incorrectly</span>.
                 </li>
                 <li>
-                  Unlike unsupervised learning models, supervised learning
-                  cannot cluster or classify data on its own.
+                  Unlike unsupervised learning models, supervised learning{" "}
+                  <span class="content-text-yellow">
+                    cannot cluster or classify
+                  </span>{" "}
+                  data on its own.
                 </li>
               </ol>
             </p>
@@ -1001,7 +1086,9 @@ const Info = () => {
             </h5>
             <p class="content-text-grey">
               <p>
-                <strong>Clustering</strong>
+                <strong>
+                  <span class="content-text-purple">Clustering</span>
+                </strong>
               </p>
               <p>
                 Clustering is a data mining technique which groups unlabeled
@@ -1013,7 +1100,11 @@ const Info = () => {
                 probabilistic.
               </p>
               <p>
-                <strong>Exclusive and Overlapping Clustering</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Exclusive and Overlapping Clustering
+                  </span>
+                </strong>
               </p>
               <p>
                 Exclusive clustering is a form of grouping that stipulates a
@@ -1022,16 +1113,18 @@ const Info = () => {
                 algorithm is an example of exclusive clustering.
               </p>
               <p>
-                <strong>K-means clustering</strong> is a common example of an
-                exclusive clustering method where data points are assigned into
-                K groups, where K represents the number of clusters based on the
-                distance from each group’s centroid. The data points closest to
-                a given centroid will be clustered under the same category. A
-                larger K value will be indicative of smaller groupings with more
-                granularity whereas a smaller K value will have larger groupings
-                and less granularity. K-means clustering is commonly used in
-                market segmentation, document clustering, image segmentation,
-                and image compression.
+                <strong>
+                  <span class="content-text-purple">K-means clustering</span>
+                </strong>{" "}
+                is a common example of an exclusive clustering method where data
+                points are assigned into K groups, where K represents the number
+                of clusters based on the distance from each group’s centroid.
+                The data points closest to a given centroid will be clustered
+                under the same category. A larger K value will be indicative of
+                smaller groupings with more granularity whereas a smaller K
+                value will have larger groupings and less granularity. K-means
+                clustering is commonly used in market segmentation, document
+                clustering, image segmentation, and image compression.
               </p>
               <p>
                 Overlapping clusters differs from exclusive clustering in that
@@ -1040,7 +1133,11 @@ const Info = () => {
                 clustering is an example of overlapping clustering.
               </p>
               <p>
-                <strong>Hierarchical clustering</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Hierarchical clustering
+                  </span>
+                </strong>
               </p>
               <p>
                 Hierarchical clustering, also known as hierarchical cluster
@@ -1054,29 +1151,44 @@ const Info = () => {
               </p>
               <ol>
                 <li>
-                  <strong>Ward’s linkage:</strong> This method states that the
-                  distance between two clusters is defined by the increase in
-                  the sum of squared after the clusters are merged.
+                  <strong>
+                    <span class="content-text-purple">Ward’s linkage:</span>
+                  </strong>{" "}
+                  This method states that the distance between two clusters is
+                  defined by the increase in the sum of squared after the
+                  clusters are merged.
                 </li>
                 <li>
-                  <strong>Average linkage:</strong> This method is defined by
-                  the mean distance between two points in each cluster.
+                  <strong>
+                    <span class="content-text-purple">Average linkage:</span>
+                  </strong>{" "}
+                  This method is defined by the mean distance between two points
+                  in each cluster.
                 </li>
                 <li>
-                  <strong>Complete (or maximum) linkage:</strong> This method is
-                  defined by the maximum distance between two points in each
-                  cluster.
+                  <strong>
+                    <span class="content-text-purple">
+                      Complete (or maximum) linkage:
+                    </span>
+                  </strong>{" "}
+                  This method is defined by the maximum distance between two
+                  points in each cluster.
                 </li>
                 <li>
-                  <strong>Single (or minimum) linkage:</strong> This method is
-                  defined by the minimum distance between two points in each
-                  cluster
+                  <strong>
+                    <span class="content-text-purple">
+                      Single (or minimum) linkage:
+                    </span>
+                  </strong>{" "}
+                  This method is defined by the minimum distance between two
+                  points in each cluster
                 </li>
               </ol>
               <p>
-                Euclidean distance is the most common metric used to calculate
-                these distances; however, other metrics, such as Manhattan
-                distance, also exist and are widely used.
+                <span class="content-text-purple">Euclidean distance</span> is
+                the most common metric used to calculate these distances;
+                however, other metrics, such as Manhattan distance, also exist
+                and are widely used.
               </p>
               <p>
                 Divisive clustering can be defined as the opposite of
@@ -1090,7 +1202,11 @@ const Info = () => {
                 iteration.
               </p>
               <p>
-                <strong>Probabilistic clustering</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Probabilistic clustering
+                  </span>
+                </strong>
               </p>
               <p>
                 A probabilistic model is an unsupervised technique that helps us
@@ -1101,22 +1217,28 @@ const Info = () => {
                 used probabilistic clustering methods.
               </p>
               <p>
-                <strong>Gaussian Mixture Models</strong> are classified as
-                mixture models, which means that they are made up of an
-                unspecified number of probability distribution functions. GMMs
-                are primarily leveraged to determine which Gaussian, or normal,
-                probability distribution a given data point belongs to. If the
-                mean or variance are known, then we can determine which
-                distribution a given data point belongs to. However, in GMMs,
-                these variables are not known, so we assume that a latent, or
-                hidden, variable exists to cluster data points appropriately.
-                While it is not required to use the Expectation-Maximization
-                (EM) algorithm, it is a commonly used to estimate the assignment
-                probabilities for a given data point to a particular data
-                cluster.{" "}
+                <strong>
+                  <span class="content-text-purple">
+                    Gaussian Mixture Models
+                  </span>
+                </strong>{" "}
+                are classified as mixture models, which means that they are made
+                up of an unspecified number of probability distribution
+                functions. GMMs are primarily leveraged to determine which
+                Gaussian, or normal, probability distribution a given data point
+                belongs to. If the mean or variance are known, then we can
+                determine which distribution a given data point belongs to.
+                However, in GMMs, these variables are not known, so we assume
+                that a latent, or hidden, variable exists to cluster data points
+                appropriately. While it is not required to use the
+                Expectation-Maximization (EM) algorithm, it is a commonly used
+                to estimate the assignment probabilities for a given data point
+                to a particular data cluster.{" "}
               </p>
               <p>
-                <strong>Association Rules</strong>
+                <strong>
+                  <span class="content-text-purple">Association Rules</span>
+                </strong>
               </p>
               <p>
                 An association rule is a rule-based method for finding
@@ -1132,7 +1254,9 @@ const Info = () => {
                 Eclat, and FP-Growth, the Apriori algorithm is most widely used.
               </p>
               <p>
-                <strong>Apriori algorithms</strong>
+                <strong>
+                  <span class="content-text-purple">Apriori algorithms</span>
+                </strong>
               </p>
               <p>
                 Apriori algorithms have been popularized through market basket
@@ -1150,7 +1274,11 @@ const Info = () => {
                 manner.
               </p>
               <p>
-                <strong>Dimensionality reduction</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Dimensionality reduction
+                  </span>
+                </strong>
               </p>
               <p>
                 While more data generally yields more accurate results, it can
@@ -1165,7 +1293,11 @@ const Info = () => {
                 that can be used, such as:
               </p>
               <p>
-                <strong>Principal component analysis</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Principal component analysis
+                  </span>
+                </strong>
               </p>
               <p>
                 Principal component analysis (PCA) is a type of dimensionality
@@ -1183,7 +1315,11 @@ const Info = () => {
                 components with the most variance.
               </p>
               <p>
-                <strong>Singular value decomposition</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Singular value decomposition
+                  </span>
+                </strong>
               </p>
               <p>
                 Singular value decomposition (SVD) is another dimensionality
@@ -1195,7 +1331,9 @@ const Info = () => {
                 such as image files.
               </p>
               <p>
-                <strong>Autoencoders</strong>
+                <strong>
+                  <span class="content-text-purple">Autoencoders</span>
+                </strong>
               </p>
               <p>
                 Autoencoders leverage neural networks to compress data and then
@@ -1233,44 +1371,61 @@ const Info = () => {
             </h5>
             <p class="content-text-grey-whitebox">
               <p>
-                <strong>News Sections:</strong> Google News uses unsupervised
-                learning to categorize articles on the same story from various
-                online news outlets. For example, the results of a presidential
-                election could be categorized under their label for “US” news.
+                <strong>
+                  <span class="content-text-purple">News Sections:</span>
+                </strong>{" "}
+                Google News uses unsupervised learning to categorize articles on
+                the same story from various online news outlets. For example,
+                the results of a presidential election could be categorized
+                under their label for “US” news.
               </p>
               <p>
-                <strong>Computer vision:</strong> Unsupervised learning
-                algorithms are used for visual perception tasks, such as object
-                recognition.{" "}
+                <strong>
+                  <span class="content-text-purple">Computer vision:</span>
+                </strong>{" "}
+                Unsupervised learning algorithms are used for visual perception
+                tasks, such as object recognition.{" "}
               </p>
               <p>
-                <strong>Medical imaging:</strong> Unsupervised machine learning
-                provides essential features to medical imaging devices, such as
-                image detection, classification and segmentation, used in
-                radiology and pathology to diagnose patients quickly and
-                accurately.
+                <strong>
+                  <span class="content-text-purple">Medical imaging:</span>
+                </strong>{" "}
+                Unsupervised machine learning provides essential features to
+                medical imaging devices, such as image detection, classification
+                and segmentation, used in radiology and pathology to diagnose
+                patients quickly and accurately.
               </p>
               <p>
-                <strong>Anomaly detection:</strong> Unsupervised learning models
-                can comb through large amounts of data and discover atypical
-                data points within a dataset. These anomalies can raise
-                awareness around faulty equipment, human error, or breaches in
-                security.
+                <strong>
+                  <span class="content-text-purple">Anomaly detection:</span>
+                </strong>{" "}
+                Unsupervised learning models can comb through large amounts of
+                data and discover atypical data points within a dataset. These
+                anomalies can raise awareness around faulty equipment, human
+                error, or breaches in security.
               </p>
               <p>
-                <strong>Customer personas:</strong> Defining customer personas
-                makes it easier to understand common traits and business
-                clients' purchasing habits. Unsupervised learning allows
-                businesses to build better buyer persona profiles, enabling
-                organizations to align their product messaging more
-                appropriately. This is something we here at Profilera excel at.
+                <strong>
+                  <span class="content-text-purple">Customer personas:</span>
+                </strong>{" "}
+                Defining customer personas makes it easier to understand common
+                traits and business clients' purchasing habits. Unsupervised
+                learning allows businesses to build better buyer persona
+                profiles, enabling organizations to align their product
+                messaging more appropriately. This is something we here at
+                Profilera excel at.
               </p>
               <p>
-                <strong>Recommendation Engines:</strong> Using past purchase
-                behavior data, unsupervised learning can help to discover data
-                trends that can be used to develop more effective cross-selling
-                strategies. This is used to make relevant add-on recommendations
-                to customers during the checkout process for online retailers.
+                <strong>
+                  <span class="content-text-purple">
+                    Recommendation Engines:
+                  </span>
+                </strong>{" "}
+                Using past purchase behavior data, unsupervised learning can
+                help to discover data trends that can be used to develop more
+                effective cross-selling strategies. This is used to make
+                relevant add-on recommendations to customers during the checkout
+                process for online retailers.
               </p>
             </p>
           </div>
@@ -1289,15 +1444,26 @@ const Info = () => {
             <p class="content-text-grey">
               <ol>
                 <li>
-                  Computational complexity due to a high volume of training
-                  data.
+                  Computational{" "}
+                  <span class="content-text-yellow">complexity</span> due to a
+                  high <span class="content-text-yellow">volume</span> of
+                  training data.
                 </li>
-                <li>Longer training times.</li>
-                <li>Higher risk of inaccurate results.</li>
-                <li>Human intervention to validate output variables.</li>
                 <li>
-                  Lack of transparency into the basis on which data was
-                  clustered.
+                  Longer <span class="content-text-yellow">training times</span>
+                  .
+                </li>
+                <li>
+                  Higher risk of{" "}
+                  <span class="content-text-yellow">inaccurate</span> results.
+                </li>
+                <li>
+                  <span class="content-text-yellow">Human intervention</span> to
+                  validate output variables.
+                </li>
+                <li>
+                  <span class="content-text-yellow">Lack of transparency</span>{" "}
+                  into the basis on which data was clustered.
                 </li>
               </ol>
             </p>
@@ -1361,36 +1527,46 @@ const Info = () => {
             <p class="content-text-grey">
               <ol>
                 <li>
-                  <strong>Goals:</strong> In supervised learning, the goal is to
-                  predict outcomes for new data. You know up front the type of
-                  results to expect. With an unsupervised learning algorithm,
-                  the goal is to get insights from large volumes of new data.
-                  The machine learning itself determines what is different or
-                  interesting from the dataset.
+                  <strong>
+                    <span class="content-text-purple">Goals:</span>
+                  </strong>{" "}
+                  In supervised learning, the goal is to predict outcomes for
+                  new data. You know up front the type of results to expect.
+                  With an unsupervised learning algorithm, the goal is to get
+                  insights from large volumes of new data. The machine learning
+                  itself determines what is different or interesting from the
+                  dataset.
                 </li>
                 <li>
-                  <strong>Applications:</strong> Supervised learning models are
-                  ideal for spam detection, sentiment analysis, weather
-                  forecasting and pricing predictions, among other things. In
-                  contrast, unsupervised learning is a great fit for anomaly
-                  detection, recommendation engines, customer personas and
-                  medical imaging.
+                  <strong>
+                    <span class="content-text-purple">Applications:</span>
+                  </strong>{" "}
+                  Supervised learning models are ideal for spam detection,
+                  sentiment analysis, weather forecasting and pricing
+                  predictions, among other things. In contrast, unsupervised
+                  learning is a great fit for anomaly detection, recommendation
+                  engines, customer personas and medical imaging.
                 </li>
                 <li>
-                  <strong>Complexity:</strong> Supervised learning is a simple
-                  method for machine learning, typically calculated through the
-                  use of programs like R or Python. In unsupervised learning,
-                  you need powerful tools for working with large amounts of
-                  unclassified data. Unsupervised learning models are
-                  computationally complex because they need a large training set
-                  to produce intended outcomes.
+                  <strong>
+                    <span class="content-text-purple">Complexity:</span>
+                  </strong>{" "}
+                  Supervised learning is a simple method for machine learning,
+                  typically calculated through the use of programs like R or
+                  Python. In unsupervised learning, you need powerful tools for
+                  working with large amounts of unclassified data. Unsupervised
+                  learning models are computationally complex because they need
+                  a large training set to produce intended outcomes.
                 </li>
                 <li>
-                  <strong>Drawbacks:</strong> Supervised learning models can be
-                  time-consuming to train, and the labels for input and output
-                  variables require expertise. Meanwhile, unsupervised learning
-                  methods can have wildly inaccurate results unless you have
-                  human intervention to validate the output variables.
+                  <strong>
+                    <span class="content-text-purple">Drawbacks:</span>
+                  </strong>{" "}
+                  Supervised learning models can be time-consuming to train, and
+                  the labels for input and output variables require expertise.
+                  Meanwhile, unsupervised learning methods can have wildly
+                  inaccurate results unless you have human intervention to
+                  validate the output variables.
                 </li>
               </ol>
             </p>
@@ -1419,20 +1595,30 @@ const Info = () => {
             <p class="content-text-grey-whitebox">
               <ol>
                 <li>
-                  <strong>Evaluate your input data:</strong> Is it labeled or
-                  unlabeled data? Do you have experts that can support
-                  additional labeling?
+                  <strong>
+                    <span class="content-text-purple">
+                      Evaluate your input data:
+                    </span>
+                  </strong>{" "}
+                  Is it labeled or unlabeled data? Do you have experts that can
+                  support additional labeling?
                 </li>
                 <li>
-                  <strong>Define your goals:</strong> Do you have a recurring,
-                  well-defined problem to solve? Or will the algorithm need to
-                  predict new problems?
+                  <strong>
+                    <span class="content-text-purple">Define your goals:</span>
+                  </strong>{" "}
+                  Do you have a recurring, well-defined problem to solve? Or
+                  will the algorithm need to predict new problems?
                 </li>
                 <li>
-                  <strong>Review your options for algorithms:</strong> Are there
-                  algorithms with the same dimensionality you need (number of
-                  features, attributes or characteristics)? Can they support
-                  your data volume and structure?
+                  <strong>
+                    <span class="content-text-purple">
+                      Review your options for algorithms:
+                    </span>
+                  </strong>{" "}
+                  Are there algorithms with the same dimensionality you need
+                  (number of features, attributes or characteristics)? Can they
+                  support your data volume and structure?
                 </li>
                 <p>
                   Classifying big data can be a real challenge in supervised
@@ -1561,48 +1747,64 @@ const Info = () => {
             </h5>
             <p class="content-text-grey-whitebox">
               <p>
-                <strong>Speech recognition:</strong> It is also known as
-                automatic speech recognition (ASR), computer speech recognition,
-                or speech-to-text, and it is a capability which uses natural
-                language processing (NLP) to process human speech into a written
-                format. Many mobile devices incorporate speech recognition into
-                their systems to conduct voice search—e.g. Siri—or provide more
-                accessibility around texting.
+                <strong>
+                  <span class="content-text-purple">Speech recognition:</span>
+                </strong>{" "}
+                It is also known as automatic speech recognition (ASR), computer
+                speech recognition, or speech-to-text, and it is a capability
+                which uses natural language processing (NLP) to process human
+                speech into a written format. Many mobile devices incorporate
+                speech recognition into their systems to conduct voice
+                search—e.g. Siri—or provide more accessibility around texting.
               </p>
               <p>
-                <strong>Customer service:</strong> Online chatbots are replacing
-                human agents along the customer journey. They answer frequently
-                asked questions (FAQs) around topics, like shipping, or provide
-                personalized advice, cross-selling products or suggesting sizes
-                for users, changing the way we think about customer engagement
-                across websites and social media platforms. Examples include
-                messaging bots on e-commerce sites with virtual agents,
-                messaging apps, such as Slack and Facebook Messenger, and tasks
-                usually done by virtual assistants and voice assistants.
+                <strong>
+                  <span class="content-text-purple">Customer service:</span>
+                </strong>{" "}
+                Online chatbots are replacing human agents along the customer
+                journey. They answer frequently asked questions (FAQs) around
+                topics, like shipping, or provide personalized advice,
+                cross-selling products or suggesting sizes for users, changing
+                the way we think about customer engagement across websites and
+                social media platforms. Examples include messaging bots on
+                e-commerce sites with virtual agents, messaging apps, such as
+                Slack and Facebook Messenger, and tasks usually done by virtual
+                assistants and voice assistants.
               </p>
               <p>
-                <strong>Computer vision:</strong> This AI technology enables
-                computers and systems to derive meaningful information from
-                digital images, videos and other visual inputs, and based on
-                those inputs, it can take action. This ability to provide
-                recommendations distinguishes it from image recognition tasks.
-                Powered by convolutional neural networks, computer vision has
-                applications within photo tagging in social media, radiology
-                imaging in healthcare, and self-driving cars within the
-                automotive industry.
+                <strong>
+                  <span class="content-text-purple">Computer vision:</span>
+                </strong>{" "}
+                This AI technology enables computers and systems to derive
+                meaningful information from digital images, videos and other
+                visual inputs, and based on those inputs, it can take action.
+                This ability to provide recommendations distinguishes it from
+                image recognition tasks. Powered by convolutional neural
+                networks, computer vision has applications within photo tagging
+                in social media, radiology imaging in healthcare, and
+                self-driving cars within the automotive industry.
               </p>
               <p>
-                <strong>Recommendation engines:</strong> Using past consumption
-                behavior data, AI algorithms can help to discover data trends
-                that can be used to develop more effective cross-selling
-                strategies. This is used to make relevant add-on recommendations
-                to customers during the checkout process for online retailers.
+                <strong>
+                  <span class="content-text-purple">
+                    Recommendation engines:
+                  </span>
+                </strong>{" "}
+                Using past consumption behavior data, AI algorithms can help to
+                discover data trends that can be used to develop more effective
+                cross-selling strategies. This is used to make relevant add-on
+                recommendations to customers during the checkout process for
+                online retailers.
               </p>
               <p>
-                <strong>Automated stock trading:</strong> Designed to optimize
-                stock portfolios, AI-driven high-frequency trading platforms
-                make thousands or even millions of trades per day without human
-                intervention.
+                <strong>
+                  <span class="content-text-purple">
+                    Automated stock trading:
+                  </span>
+                </strong>{" "}
+                Designed to optimize stock portfolios, AI-driven high-frequency
+                trading platforms make thousands or even millions of trades per
+                day without human intervention.
               </p>
             </p>
           </div>
@@ -1621,7 +1823,11 @@ const Info = () => {
             </h5>
             <p class="content-text-grey">
               <p>
-                <strong>Technological singularity</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Technological singularity
+                  </span>
+                </strong>
               </p>
               <p>
                 While this topic garners a lot of public attention, many
@@ -1643,7 +1849,9 @@ const Info = () => {
                 occurring as new, innovative AI technology develops.
               </p>
               <p>
-                <strong>AI impact on jobs</strong>
+                <strong>
+                  <span class="content-text-purple">AI impact on jobs</span>
+                </strong>
               </p>
               <p>
                 While a lot of public perception around artificial intelligence
@@ -1666,7 +1874,9 @@ const Info = () => {
                 new areas of market demand.
               </p>
               <p>
-                <strong>Privacy</strong>
+                <strong>
+                  <span class="content-text-purple">Privacy</span>
+                </strong>
               </p>
               <p>
                 Privacy tends to be discussed in the context of data privacy,
@@ -1686,7 +1896,11 @@ const Info = () => {
                 cyberattacks.
               </p>
               <p>
-                <strong>Bias and discrimination</strong>
+                <strong>
+                  <span class="content-text-purple">
+                    Bias and discrimination
+                  </span>
+                </strong>
               </p>
               <p>
                 Instances of bias and discrimination across a number of
@@ -1723,7 +1937,9 @@ const Info = () => {
                 Profilera will strive to do the same.
               </p>
               <p>
-                <strong>Accountability</strong>
+                <strong>
+                  <span class="content-text-purple">Accountability</span>
+                </strong>
               </p>
               <p>
                 Since there isn’t significant legislation to regulate AI

@@ -1666,3 +1666,11 @@ blockquote p::before {
 blockquote p::after {
   content: "\201D";
 }
+
+.machine-learning-logo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding-right: 32px;
+  padding-left: 32px;
+}
