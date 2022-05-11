@@ -77,37 +77,37 @@ const Analysis = () => {
               { response: unprocessedList[item].response },
             ];
 
-            processedList.push(data);
-          }
-
-          for (var item in processedList) {
-            for (var item2 in processedList[item]) {
-              if (
-                processedList[item][item2].date != undefined ||
-                processedList[item][item2].status != undefined ||
-                processedList[item][item2].response != undefined
-              ) {
-                console.log(processedList[item][item2].date);
-
-                console.log(processedList[item][item2].status);
-
-                var ul = document.getElementById("list");
-                var li = document.createElement("li");
-                li.appendChild(
-                  document.createTextNode(
-                    "Date: " +
-                      processedList[item][item2].date +
-                      " Status:  " +
-                      processedList[item][item2].status +
-                      " Response: " +
-                      processedList[item][item2].response +
-                      " "
-                  )
-                );
-                ul.appendChild(li);
+            data.forEach((element) => {
+              if (element !== undefined) {
+                processedList.push(element);
               }
-            }
+            });
           }
+
+          processedList.forEach((element) => {
+            console.log(element.date);
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+
+            if (element.date !== undefined) {
+              li.appendChild(document.createTextNode("Date: " + element.date));
+              ul.appendChild(li);
+            }
+
+            if (element.status !== undefined) {
+              li.appendChild(
+                document.createTextNode(" Status: " + element.status)
+              );
+              ul.appendChild(li);
+            }
+
+            if (element.response !== undefined) {
+              li.appendChild(
+                document.createTextNode(" Response: " + element.response)
+              );
+              ul.appendChild(li);
+            }
+          });
         });
       } else {
         console.log(response);
