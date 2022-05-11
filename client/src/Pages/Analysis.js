@@ -87,6 +87,7 @@ const Analysis = () => {
             console.log(element.date);
             var ul = document.getElementById("list");
             var li = document.createElement("li");
+
             if (element.date !== undefined) {
               li.appendChild(document.createTextNode("Date: " + element.date));
               ul.appendChild(li);
@@ -107,7 +108,12 @@ const Analysis = () => {
               ul.appendChild(li);
             }
           });
-          console.log(analysisNR);
+          var h1 = document.createElement("h1");
+          var someDiv = document.getElementById("someDiv");
+          h1.appendChild(
+            document.createTextNode(" Notifications: " + analysisNR)
+          );
+          someDiv.appendChild(h1);
         });
       } else {
         console.log(response);
@@ -176,6 +182,7 @@ const Analysis = () => {
           <li class="listItems"></li>
         </ul>
       </div>
+      <div id="someDiv"> </div>
 
       <section id="scroll-analys"></section>
 
