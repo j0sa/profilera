@@ -10,11 +10,10 @@ import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
 
-import ReactDOM from "react-dom";
-
 const Analysis = () => {
   // let [data, setData] = React.useState("");
 
+  // Global Variables
   const navigate = useNavigate();
   const cookies = new Cookies();
   let analysisNR = 0;
@@ -41,11 +40,6 @@ const Analysis = () => {
     },
   });
 
-  // const handleFileRead = ({file}) =>{
-  //   const fileReader = new FileReader();
-
-  // }
-
   const decryptStringWithAES = (encryptedText) => {
     const passphrase = "123"; // make this an environment variable
     const bytes = CryptoJS.AES.decrypt(encryptedText, passphrase);
@@ -61,6 +55,8 @@ const Analysis = () => {
         method: "GET",
       }
     ).then((response) => {
+      /*eslint no-loop-func: "error"*/
+      /*eslint-env es6*/
       if (response.ok) {
         unprocessedList = [];
         processedList = [];
@@ -77,12 +73,17 @@ const Analysis = () => {
               { dataset: unprocessedList[item].dataset },
               { response: unprocessedList[item].response },
             ];
-
-            data.forEach((element) => {
+            // data.forEach((element) => {
+            //   if (element !== undefined) {
+            //     processedList.push(element);
+            //   }
+            // });
+            for (let index = 0; index < data.length; index++) {
+              const element = data[index];
               if (element !== undefined) {
                 processedList.push(element);
               }
-            });
+            }
           }
 
           processedList.forEach((element) => {
@@ -111,9 +112,8 @@ const Analysis = () => {
               );
               ul.appendChild(li);
             }
-
-            console.alert(analysisNR);
           });
+          console.log(analysisNR);
         });
       } else {
         console.log(response);
