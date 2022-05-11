@@ -165,6 +165,7 @@ const Analysis = () => {
 
   useEffect(() => {
     if (cookies.get("userLoggedIn") === "true") {
+      handleGetAnalys();
       document.getElementById("overlaybr-icon-info").style.display = "block";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -172,14 +173,6 @@ const Analysis = () => {
 
   return (
     <div>
-      <div className="itsComplicatedBTNdiv">
-        <button
-          className="itsComplicatedBTN"
-          type="button"
-          onClick={handleGetAnalys}
-        ></button>
-      </div>
-
       <div>
         <ul id="list">
           <li class="listItems"></li>
