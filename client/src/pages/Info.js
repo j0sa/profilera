@@ -16,7 +16,7 @@ import Cookies from "universal-cookie";
 import { ThemeProvider } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import * as CryptoJS from "crypto-js";
-import machineLearningPicture from "../assets/images/machine-learning2.png";
+import machineLearningPicture from "../assets/images/machine-learning3.png";
 import aiVsMlVsDl from "../assets/images/ai-vs-ml-vs-dl.png";
 
 const Info = () => {
@@ -591,9 +591,9 @@ const Info = () => {
           <div class="content-third content-center">
             <i class="content-padding-64 content-text-red content-margin-right">
               <img
-                class="machine-learning-logo"
+                class="aiVsMlVsDl-logo"
                 src={aiVsMlVsDl}
-                alt="Machine Learning"
+                alt="Ai vs Machine Learning vs Deep Learning"
               ></img>
             </i>
           </div>

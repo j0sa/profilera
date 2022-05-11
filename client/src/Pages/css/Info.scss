@@ -1668,9 +1668,14 @@ blockquote p::after {
 }
 
 .machine-learning-logo {
+  height: 400px;
+  object-fit: contain;
+  padding-left: 32px;
+}
+
+.aiVsMlVsDl-logo {
   height: 100%;
   width: 100%;
   object-fit: contain;
   padding-right: 32px;
-  padding-left: 32px;
 }

@@ -17,6 +17,7 @@ const Analysis = () => {
 
   const navigate = useNavigate();
   const cookies = new Cookies();
+  let analysisNR = 0;
   var unprocessedList = [];
   var processedList = [];
 
@@ -98,6 +99,9 @@ const Analysis = () => {
               li.appendChild(
                 document.createTextNode(" Status: " + element.status)
               );
+              if (JSON.stringify(element.status) === "1") {
+                analysisNR++;
+              }
               ul.appendChild(li);
             }
 
@@ -107,6 +111,8 @@ const Analysis = () => {
               );
               ul.appendChild(li);
             }
+
+            console.alert(analysisNR);
           });
         });
       } else {
