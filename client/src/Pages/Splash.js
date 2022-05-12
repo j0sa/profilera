@@ -222,7 +222,7 @@ const Splash = () => {
       </div>
 
       <CookieConsent
-        debug={true}
+        debug={false}
         location="bottom"
         buttonText="Accept"
         enableDeclineButton
