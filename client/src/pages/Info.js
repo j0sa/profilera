@@ -25,6 +25,8 @@ const Info = () => {
   const [openRegister, setOpenRegister] = React.useState(false);
   const [openSnackbarSuccess, setOpenSnackbarSuccess] = React.useState(false);
   const [openSnackbarError, setOpenSnackbarError] = React.useState(false);
+  const [openSnackbarLoggedOut, setOpenSnackbarLoggedOut] =
+    React.useState(false);
   const [openSnackbarPassChange, setOpenSnackbarPassChange] =
     React.useState(false);
   const [openProfile, setOpenProfile] = React.useState(false);
@@ -111,6 +113,15 @@ const Info = () => {
 
   const handleClickEventSnackbarError = () => {
     setOpenSnackbarError(true);
+  };
+
+  const handleToCloseSnackbarLoggedOut = (event, reason) => {
+    if ("clickaway" === reason) return;
+    setOpenSnackbarLoggedOut(false);
+  };
+
+  const handleClickEventSnackbarLoggedOut = () => {
+    setOpenSnackbarLoggedOut(true);
   };
 
   const handleToCloseSnackbarPassChange = (event, reason) => {
@@ -312,7 +323,6 @@ const Info = () => {
           variant="contained"
           color="secondary"
           size="large"
-          // TODO add conditional statement to open profile info if logged in
           onClick={() => {
             if (cookies.get("userLoggedIn") === "true") {
               openProfileDialog(true);
@@ -454,6 +464,20 @@ const Info = () => {
         </Snackbar>
 
         <Snackbar
+          open={openSnackbarLoggedOut}
+          autoHideDuration={7000}
+          onClose={handleToCloseSnackbarLoggedOut}
+        >
+          <Alert
+            onClose={handleToCloseSnackbarLoggedOut}
+            severity="warning"
+            sx={{ width: "100%" }}
+          >
+            You are now logged out.
+          </Alert>
+        </Snackbar>
+
+        <Snackbar
           open={openSnackbarPassChange}
           autoHideDuration={7000}
           onClose={handleToCloseSnackbarerror}
@@ -469,7 +493,31 @@ const Info = () => {
       </div>
 
       <Dialog open={openProfile} onClose={() => setOpenProfile(false)}>
-        <DialogTitle>Change Info</DialogTitle>
+        <DialogTitle>
+          Change Info
+          <Button
+            variant="contained"
+            color="secondary"
+            id="logOutBtn"
+            size="large"
+            onClick={() => {
+              if (cookies.get("userLoggedIn") === "true") {
+                cookies.set("userLoggedIn", false, {
+                  path: "/",
+                });
+
+                cookies.remove("userId");
+                setOpenProfile(false);
+                handleClickEventSnackbarLoggedOut();
+              } else {
+                setOpenLogin(true);
+              }
+            }}
+          >
+            Log Out
+          </Button>
+        </DialogTitle>
+
         <form onSubmit={handleUserInfoChangeSubmit}>
           <DialogContent>
             <TextField
