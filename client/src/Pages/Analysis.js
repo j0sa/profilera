@@ -9,6 +9,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Papa from "papaparse";
 import * as CryptoJS from "crypto-js";
 import AddIcon from "@mui/icons-material/Add";
+import Badge from "@mui/material/Badge";
+import MailIcon from "@mui/icons-material/Mail";
 
 const Analysis = () => {
   // Global Variables
@@ -93,25 +95,39 @@ const Analysis = () => {
               ul.appendChild(li);
             }
             if (element.status !== undefined) {
-              li.appendChild(
-                document.createTextNode(" Status: " + element.status)
-              );
+              let statusMessage;
+              switch (element.status) {
+                case 1:
+                  statusMessage = "Not Started";
+                  break;
+                case 2:
+                  statusMessage = "In Progress";
+                  break;
+                case 3:
+                  statusMessage = "Completed";
+                  break;
+                case 4:
+                  statusMessage = "Suspended";
+                  break;
+                case 5:
+                  statusMessage = "Aborted";
+                  break;
+                default:
+                  statusMessage = "N/A";
+              }
+              li.appendChild(document.createTextNode(statusMessage));
               if (JSON.stringify(element.status) === "1") {
                 analysisNR++;
               }
-              ul.appendChild(li);
-            }
-            if (element.response !== undefined) {
-              li.appendChild(
-                document.createTextNode(" Response: " + element.response)
-              );
               ul.appendChild(li);
             }
           });
           var h1 = document.createElement("h1");
           var someDiv = document.getElementById("someDiv");
           h1.appendChild(
-            document.createTextNode(" Notifications: " + analysisNR)
+            document.createTextNode(
+              "You have " + analysisNR + " completed analyses."
+            )
           );
           someDiv.appendChild(h1);
         });

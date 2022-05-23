@@ -539,11 +539,11 @@ const Info = () => {
       <br></br>
       <header class="content-container content-purple content-center header-machine-learning">
         <h1 class="content-margin content-xjumbo">MACHINE LEARNING</h1>
-        <p class="content-large">
+        <h5 class="content-large">
           This introduction to machine learning provides an overview of its
           history, important definitions, applications, and concerns within
           businesses today.
-        </p>
+        </h5>
       </header>
 
       <div class="content-row-padding content-padding-64 content-container">
