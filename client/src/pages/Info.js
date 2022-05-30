@@ -295,6 +295,7 @@ const Info = () => {
         setOpenLogin(false);
         console.assert(dataUU);
         console.warn(response);
+        window.location.reload(false);
       } else {
         handleClickEventSnackbarError();
         cookies.set("userLoggedIn", false, {
@@ -509,6 +510,7 @@ const Info = () => {
                 cookies.remove("userId");
                 setOpenProfile(false);
                 handleClickEventSnackbarLoggedOut();
+                window.location.reload(false);
               } else {
                 setOpenLogin(true);
               }

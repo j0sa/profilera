@@ -115,7 +115,9 @@ const Analysis = () => {
                 default:
                   statusMessage = "N/A";
               }
-              li.appendChild(document.createTextNode(statusMessage));
+              li.appendChild(
+                document.createTextNode("Status: " + statusMessage)
+              );
               if (JSON.stringify(element.status) === "1") {
                 analysisNR++;
               }
@@ -172,6 +174,7 @@ const Analysis = () => {
         } else {
           console.log(response);
         }
+        window.location.reload(false);
       });
     }
     // You can set content in state and show it in render.
@@ -193,12 +196,12 @@ const Analysis = () => {
 
   return (
     <div>
+      <div id="someDiv"> </div>
       <div>
         <ul id="list">
           <li class="listItems"></li>
         </ul>
       </div>
-      <div id="someDiv"> </div>
 
       <section id="scroll-analys"></section>
 
